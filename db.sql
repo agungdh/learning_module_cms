@@ -3,7 +3,7 @@
 -- Host: 127.0.0.1	Database: lmcms
 -- ------------------------------------------------------
 -- Server version 	5.5.5-10.1.35-MariaDB
--- Date: Tue, 12 Mar 2019 15:51:20 +0700
+-- Date: Tue, 12 Mar 2019 16:18:14 +0700
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -15,6 +15,40 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `bagian`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bagian` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_modul` int(11) NOT NULL,
+  `bagian` varchar(191) NOT NULL,
+  `text` longtext NOT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_modul` (`id_modul`),
+  KEY `parent_id` (`parent_id`),
+  CONSTRAINT `bagian_ibfk_1` FOREIGN KEY (`id_modul`) REFERENCES `modul` (`id`),
+  CONSTRAINT `bagian_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `bagian` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bagian`
+--
+
+LOCK TABLES `bagian` WRITE;
+/*!40000 ALTER TABLE `bagian` DISABLE KEYS */;
+SET autocommit=0;
+/*!40000 ALTER TABLE `bagian` ENABLE KEYS */;
+UNLOCK TABLES;
+COMMIT;
+
+-- Dumped table `bagian` with 0 row(s)
+--
 
 --
 -- Table structure for table `hak_akses`
@@ -115,9 +149,12 @@ COMMIT;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `modul` (
-  `id` int(11) NOT NULL,
-  `nama` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `modul` varchar(191) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_user` (`id_user`),
+  CONSTRAINT `modul_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `pos`.`user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -206,4 +243,4 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on: Tue, 12 Mar 2019 15:51:20 +0700
+-- Dump completed on: Tue, 12 Mar 2019 16:18:14 +0700
