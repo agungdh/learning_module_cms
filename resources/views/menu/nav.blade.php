@@ -1,0 +1,1 @@
+<li><a href="{{ route('menu.index', ['id' => $request->id ?: null]) }}"><i class="fa fa-home"></i> Menu</a></li>
