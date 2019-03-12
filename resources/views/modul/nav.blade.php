@@ -1,0 +1,1 @@
+<li><a href="{{ route('modul.index') }}"><i class="fa fa-home"></i> Modul</a></li>

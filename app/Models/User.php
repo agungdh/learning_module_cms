@@ -24,4 +24,9 @@ class User extends Model
     {
         return $this->hasMany('App\Models\HakAkses', 'id_user');
     }
+
+    public function moduls()
+    {
+        return $this->hasMany('App\Models\Modul', 'id_user');
+    }
 }

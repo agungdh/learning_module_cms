@@ -42,6 +42,15 @@ Route::delete('/peran/{id}', 'PeranController@destroy')->name('peran.destroy');
 Route::get('/peran/{id}/sync', 'PeranController@sync')->name('peran.sync');
 // END Peran
 
+// Modul
+Route::get('/modul', 'ModulController@index')->name('modul.index');
+Route::get('/modul/create', 'ModulController@create')->name('modul.create');
+Route::post('/modul', 'ModulController@store')->name('modul.store');
+Route::get('/modul/{id}/edit', 'ModulController@edit')->name('modul.edit');
+Route::put('/modul/{id}', 'ModulController@update')->name('modul.update');
+Route::delete('/modul/{id}', 'ModulController@destroy')->name('modul.destroy');
+// END Modul
+
 // Main
 Route::get('/', 'MainController@index')->name('main.index');
 Route::post('/login', 'MainController@login')->name('main.login');

@@ -3,7 +3,7 @@
 -- Host: 127.0.0.1	Database: lmcms
 -- ------------------------------------------------------
 -- Server version 	5.5.5-10.1.35-MariaDB
--- Date: Tue, 12 Mar 2019 16:18:14 +0700
+-- Date: Tue, 12 Mar 2019 16:34:41 +0700
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -155,7 +155,7 @@ CREATE TABLE `modul` (
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `modul_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `pos`.`user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,11 +165,12 @@ CREATE TABLE `modul` (
 LOCK TABLES `modul` WRITE;
 /*!40000 ALTER TABLE `modul` DISABLE KEYS */;
 SET autocommit=0;
+INSERT INTO `modul` VALUES (3,'PHP for dummies 1',1);
 /*!40000 ALTER TABLE `modul` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `modul` with 0 row(s)
+-- Dumped table `modul` with 1 row(s)
 --
 
 --
@@ -226,7 +227,7 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `user` VALUES (1,'admin','$2y$10$WwAZ2IliBuDLWwX1JiwcWuBe5c8t.KckyQf6siSS5Ea1cKRwZUe2K','Administrator',1),(3,'agungdh','$2y$10$QvL7GUgF1gMVZ34JwPIyMO6ybdKwUXiksHqxOfwhMfMZwv3ssLbJi','AgungDH',1);
+INSERT INTO `user` VALUES (1,'admin','$2y$10$WwAZ2IliBuDLWwX1JiwcWuBe5c8t.KckyQf6siSS5Ea1cKRwZUe2K','Administrator',1),(3,'agungdh','$2y$10$WwAZ2IliBuDLWwX1JiwcWuBe5c8t.KckyQf6siSS5Ea1cKRwZUe2K','AgungDH',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
@@ -243,4 +244,4 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on: Tue, 12 Mar 2019 16:18:14 +0700
+-- Dump completed on: Tue, 12 Mar 2019 16:34:41 +0700
