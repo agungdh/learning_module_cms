@@ -5,12 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Modul;
+use App\Models\User;
 
 use ADHhelper;
 
 class ModulController extends Controller
 {
- 
+
+    private function authorCheck($id)
+    {
+        $modul = Modul::find($id);
+
+        if ($modul && $modul->id_user == session('userID')) {
+            return true;
+        }
+    }
+
     public function index()
     {
         $moduls = Modul::where(['id_user' => session('userID')])->get();
@@ -43,6 +53,10 @@ class ModulController extends Controller
 
     public function edit($id)
     {
+        if (!$this->authorCheck($id)) {
+            return redirect()->route('main.index');
+        }
+
         $modul = Modul::find($id);
 
         return view('modul.edit', compact(['modul']));
@@ -50,6 +64,10 @@ class ModulController extends Controller
 
     public function update(Request $request, $id)
     {
+        if (!$this->authorCheck($id)) {
+            return redirect()->route('main.index');
+        }
+        
         $request->validate([
             'modul' => 'required',
         ]);
@@ -67,6 +85,10 @@ class ModulController extends Controller
 
     public function destroy($id)
     {
+        if (!$this->authorCheck($id)) {
+            return redirect()->route('main.index');
+        }
+        
         Modul::where(['id' => $id])->delete();
 
         return redirect()->route('modul.index')->with('alert', [
