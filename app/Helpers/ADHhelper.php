@@ -12,6 +12,20 @@ use agungdh\Pustaka;
 
 class ADHhelper extends Pustaka
 {
+    public static function getMenuTitle($route) {
+        return Menu::find(self::getMenuIdByRouteSlug($route))->menu;
+    }
+
+    public static function getCurrentMenuTitle() {
+        $menu = Menu::find(self::getMenuIdByRouteSlug(self::getCurrentRouteSlug()));
+
+        if ($menu) {
+            return $menu->menu;
+        }
+
+        return false;
+    }
+
     public static function checkRouteForMenu($route) {
         try {
             $canIt = route($route);
