@@ -68,15 +68,14 @@
     <section class="sidebar">
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li>
-          <li>
+          <li class="{{!isset($bagian) && !isset($subbagian) ? "active" : null}}">
             <a href="{{route('read.index', $modul->id)}}">
               <i class="fa fa-list"></i> <span>Index</span>
             </a>
           </li>
 
           @foreach($modul->bagians as $menuBagian)
-          <li class="treeview {{$bagian->id == $menuBagian->id ? "active" : null}}">
+          <li class="treeview {{ isset($bagian) && $bagian->id == $menuBagian->id ? "active" : null}}">
             <a href="#">
               <i class="fa fa-file-text"></i> <span> {{$menuBagian->bagian}}</span>
               <span class="pull-right-container">
@@ -85,7 +84,7 @@
             </a>
             <ul class="treeview-menu">
               @foreach($menuBagian->childs as $menuSubBagian)
-              <li class="{{$subbagian->id == $menuSubBagian->id ? "active" : null}}"><a href="{{route('read.read', [$modul->id, $menuBagian->id, $menuSubBagian->id])}}"><i class="fa fa-circle-o"></i> {{$menuSubBagian->bagian}}</a></li>
+              <li class="{{ isset($subbagian) && $subbagian->id == $menuSubBagian->id ? "active" : null}}"><a href="{{route('read.read', [$modul->id, $menuBagian->id, $menuSubBagian->id])}}"><i class="fa fa-circle-o"></i> {{$menuSubBagian->bagian}}</a></li>
               @endforeach
             </ul>
           </li>
