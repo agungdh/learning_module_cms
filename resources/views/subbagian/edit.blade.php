@@ -14,6 +14,11 @@
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">Ubah Sub Bagian</h3>
+				<p>
+	                Modul: {{$modul->modul}}
+	                <br>
+	                Bagian: {{$bagian->bagian}}
+              	</p>
 			</div>
 
 			{!! Form::model($subbagian, ['route' => ['subbagian.update', $subbagian->id], 'role' => 'form', 'method' => 'put']) !!}

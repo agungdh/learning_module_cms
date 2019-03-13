@@ -133,4 +133,26 @@ class SubBagianController extends Controller
             'class' => 'success',
         ]);        
     }
+
+    public function document($id)
+    {
+        // if (!$this->authorCheckBagian($id)) {
+        //     return redirect()->route('main.index');
+        // }
+
+        $subbagian = Bagian::find($id);
+        $subbagian->subbagian = $subbagian->bagian;
+        $bagian = $subbagian->parent;
+        $modul = $bagian->modul;
+
+        return view('subbagian.document', compact(['subbagian', 'bagian', 'modul']));
+    }
+
+    public function saveDocument($id)
+    {
+        // if (!$this->authorCheckBagian($id)) {
+        //     return redirect()->route('main.index');
+        // }        
+    }
+
 }

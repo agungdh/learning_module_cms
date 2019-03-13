@@ -14,6 +14,7 @@
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">Tambah Bagian</h3>
+				<p>Modul: {{$modul->modul}}</p>
 			</div>
 
 			{!! Form::open(['route' => ['bagian.store', $modul->id], 'role' => 'form']) !!}
