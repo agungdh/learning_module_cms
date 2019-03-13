@@ -125,7 +125,16 @@ class SubBagianController extends Controller
         
         $bagian = Bagian::find($id);
         $parent_id = $bagian->parent_id;
-        $bagian->delete();
+     
+        try {
+            $bagian->delete();
+        } catch (QueryException $exception) {
+            return redirect()->back()->with('alert', [
+                'title' => 'ERROR !!!',
+                'message' => env('APP_DEBUG') ? $exception->getMessage() : 'Something Went Wrong !!!',
+                'class' => 'error',
+            ]);        
+        }     
 
         return redirect()->route('subbagian.index', $parent_id)->with('alert', [
             'title' => 'BERHASIL !!!',

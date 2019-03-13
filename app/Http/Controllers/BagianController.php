@@ -121,7 +121,16 @@ class BagianController extends Controller
         
         $bagian = Bagian::find($id);
         $id_modul = $bagian->id_modul;
-        $bagian->delete();
+        
+        try {
+            $bagian->delete();
+        } catch (QueryException $exception) {
+            return redirect()->back()->with('alert', [
+                'title' => 'ERROR !!!',
+                'message' => env('APP_DEBUG') ? $exception->getMessage() : 'Something Went Wrong !!!',
+                'class' => 'error',
+            ]);        
+        }
 
         return redirect()->route('bagian.index', $id_modul)->with('alert', [
             'title' => 'BERHASIL !!!',

@@ -234,7 +234,15 @@ class MenuController extends Controller
         $id = $menu->parent_id ?: null;
         $posisi = $menu->posisi;
 
-        $menu->delete();
+        try {
+            $menu->delete();   
+        } catch (QueryException $exception) {
+            return redirect()->back()->with('alert', [
+                'title' => 'ERROR !!!',
+                'message' => env('APP_DEBUG') ? $exception->getMessage() : 'Something Went Wrong !!!',
+                'class' => 'error',
+            ]);        
+        }
 
         return redirect()->route('menu.index', ['id' => $id])->with('alert', [
             'title' => 'BERHASIL !!!',

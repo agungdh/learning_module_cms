@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 use App\Models\Modul;
 use App\Models\User;
@@ -88,8 +89,16 @@ class ModulController extends Controller
         if (!$this->authorCheck($id)) {
             return redirect()->route('main.index');
         }
-        
-        Modul::where(['id' => $id])->delete();
+     
+        try {
+            Modul::where(['id' => $id])->delete();   
+        } catch (QueryException $exception) {
+            return redirect()->back()->with('alert', [
+                'title' => 'ERROR !!!',
+                'message' => env('APP_DEBUG') ? $exception->getMessage() : 'Something Went Wrong !!!',
+                'class' => 'error',
+            ]);        
+        }
 
         return redirect()->route('modul.index')->with('alert', [
             'title' => 'BERHASIL !!!',
