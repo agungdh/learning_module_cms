@@ -148,11 +148,21 @@ class SubBagianController extends Controller
         return view('subbagian.document', compact(['subbagian', 'bagian', 'modul']));
     }
 
-    public function saveDocument($id)
+    public function saveDocument(Request $request, $id)
     {
         // if (!$this->authorCheckBagian($id)) {
         //     return redirect()->route('main.index');
         // }        
+
+        $subbagian = Bagian::find($id);
+        $subbagian->text = $request->text;
+        $subbagian->save();
+
+        return redirect()->route('subbagian.document', $subbagian->id)->with('alert', [
+            'title' => 'BERHASIL !!!',
+            'message' => 'Berhasil Simpan Data',
+            'class' => 'success',
+        ]); 
     }
 
 }
