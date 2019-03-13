@@ -1,11 +1,11 @@
 @extends('template.template')
 
 @section('title')
-@include('bagian.title')
+@include('subbagian.title')
 @endsection
 
 @section('nav')
-@include('bagian.nav')
+@include('subbagian.nav')
 @endsection
 
 @section('content')
@@ -13,34 +13,35 @@
 	<div class="col-md-12">
 		<div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Data Bagian</h3>
-              <p>Modul: {{$modul->modul}}</p>
+              <h3 class="box-title">Data Sub Bagian</h3>
+              <p>
+                Modul: {{$modul->modul}}
+                <br>
+                Bagian: {{$bagian->bagian}}
+              </p>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            	<a class="btn btn-success btn-sm" href="{{route('bagian.create', $modul->id)}}">
+            	<a class="btn btn-success btn-sm" href="{{route('subbagian.create', $bagian->id)}}">
                   <i class="glyphicon glyphicon-plus"></i> Tambah
                 </a><br><br>
               <table class="table table-bordered table-hover datatable" style="width: 100%">
                 <thead>
 	                <tr>
-	                  <th>Bagian</th>
+	                  <th>Sub Bagian</th>
 	                  <th>Proses</th>
 	                </tr>
                 </thead>
                 <tbody>
-                	@foreach($bagians as $item)
+                	@foreach($subbagians as $item)
                 	<tr>
                 		<td>{{$item->bagian}}</td>
                 		
                 		<td>
 
-			                {!! Form::open(['id' => 'formHapus' . $item->id, 'route' => ['bagian.destroy', $item->id], 'method' => 'delete']) !!}
-                        <a class="btn btn-primary btn-sm" href="{{route('subbagian.index', $item->id)}}">
-                          <i class="glyphicon glyphicon-pencil"></i> Sub Bagian
-                        </a>
+			                {!! Form::open(['id' => 'formHapus' . $item->id, 'route' => ['subbagian.destroy', $item->id], 'method' => 'delete']) !!}
 
-	                			<a class="btn btn-primary btn-sm" href="{{route('bagian.edit', $item->id)}}">
+	                			<a class="btn btn-primary btn-sm" href="{{route('subbagian.edit', $item->id)}}">
 				                  <i class="glyphicon glyphicon-pencil"></i> Edit
 				                </a>
 

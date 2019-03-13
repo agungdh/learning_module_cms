@@ -67,6 +67,15 @@ Route::middleware('MustLoggedIn')->group(function () {
 	Route::delete('/bagian/{id}', 'BagianController@destroy')->name('bagian.destroy');
 	// END Bagian
 
+	// Sub Bagian
+	Route::get('/subbagian/{id}', 'SubBagianController@index')->name('subbagian.index');
+	Route::get('/subbagian/{id}/create', 'SubBagianController@create')->name('subbagian.create');
+	Route::post('/subbagian/{id}', 'SubBagianController@store')->name('subbagian.store');
+	Route::get('/subbagian/{id}/edit', 'SubBagianController@edit')->name('subbagian.edit');
+	Route::put('/subbagian/{id}', 'SubBagianController@update')->name('subbagian.update');
+	Route::delete('/subbagian/{id}', 'SubBagianController@destroy')->name('subbagian.destroy');
+	// END Sub Bagian
+
 });
 
 Route::middleware('ADHauth')->group(function () {
