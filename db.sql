@@ -3,7 +3,7 @@
 -- Host: 127.0.0.1	Database: lmcms
 -- ------------------------------------------------------
 -- Server version 	5.5.5-10.1.35-MariaDB
--- Date: Tue, 12 Mar 2019 16:34:41 +0700
+-- Date: Wed, 13 Mar 2019 15:11:24 +0700
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,16 +24,16 @@
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bagian` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_modul` int(11) NOT NULL,
+  `id_modul` int(11) DEFAULT NULL,
   `bagian` varchar(191) NOT NULL,
-  `text` longtext NOT NULL,
+  `text` longtext,
   `parent_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_modul` (`id_modul`),
   KEY `parent_id` (`parent_id`),
   CONSTRAINT `bagian_ibfk_1` FOREIGN KEY (`id_modul`) REFERENCES `modul` (`id`),
   CONSTRAINT `bagian_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `bagian` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,11 +43,12 @@ CREATE TABLE `bagian` (
 LOCK TABLES `bagian` WRITE;
 /*!40000 ALTER TABLE `bagian` DISABLE KEYS */;
 SET autocommit=0;
+INSERT INTO `bagian` VALUES (7,7,'Looping',NULL,NULL),(8,NULL,'What is looping ?',NULL,7),(9,NULL,'For',NULL,7),(10,NULL,'While',NULL,7);
 /*!40000 ALTER TABLE `bagian` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `bagian` with 0 row(s)
+-- Dumped table `bagian` with 4 row(s)
 --
 
 --
@@ -155,7 +156,7 @@ CREATE TABLE `modul` (
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `modul_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `pos`.`user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,12 +166,12 @@ CREATE TABLE `modul` (
 LOCK TABLES `modul` WRITE;
 /*!40000 ALTER TABLE `modul` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `modul` VALUES (3,'PHP for dummies 1',1);
+INSERT INTO `modul` VALUES (5,'PHP for dummies 1 agung',3),(7,'JAVA is EZ PZ',1);
 /*!40000 ALTER TABLE `modul` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `modul` with 1 row(s)
+-- Dumped table `modul` with 2 row(s)
 --
 
 --
@@ -244,4 +245,4 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on: Tue, 12 Mar 2019 16:34:41 +0700
+-- Dump completed on: Wed, 13 Mar 2019 15:11:24 +0700
