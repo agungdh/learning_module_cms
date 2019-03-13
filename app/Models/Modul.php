@@ -14,8 +14,13 @@ class Modul extends Model
                             'id_user',
     					];
 
-	public function user()
+    public function user()
     {
         return $this->belongsTo('App\Models\User', 'id_user');
+    }
+
+	public function bagians()
+    {
+        return $this->hasMany('App\Models\Bagian', 'id_modul');
     }
 }

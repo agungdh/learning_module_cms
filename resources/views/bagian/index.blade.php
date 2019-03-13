@@ -1,11 +1,11 @@
 @extends('template.template')
 
 @section('title')
-@include('modul.title')
+@include('bagian.title')
 @endsection
 
 @section('nav')
-@include('modul.nav')
+@include('bagian.nav')
 @endsection
 
 @section('content')
@@ -13,33 +13,34 @@
 	<div class="col-md-12">
 		<div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Data Modul</h3>
+              <h3 class="box-title">Data Bagian</h3>
+              <p>Modul: {{$modul->modul}}</p>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            	<a class="btn btn-success btn-sm" href="{{route('modul.create')}}">
+            	<a class="btn btn-success btn-sm" href="{{route('bagian.create', $modul->id)}}">
                   <i class="glyphicon glyphicon-plus"></i> Tambah
                 </a><br><br>
               <table class="table table-bordered table-hover datatable" style="width: 100%">
                 <thead>
 	                <tr>
-	                  <th>Modul</th>
+	                  <th>Bagian</th>
 	                  <th>Proses</th>
 	                </tr>
                 </thead>
                 <tbody>
-                	@foreach($moduls as $item)
+                	@foreach($bagians as $item)
                 	<tr>
-                		<td>{{$item->modul}}</td>
+                		<td>{{$item->bagian}}</td>
                 		
                 		<td>
 
-			                {!! Form::open(['id' => 'formHapus' . $item->id, 'route' => ['modul.destroy', $item->id], 'method' => 'delete']) !!}
+			                {!! Form::open(['id' => 'formHapus' . $item->id, 'route' => ['bagian.destroy', $item->id], 'method' => 'delete']) !!}
                                 <a class="btn btn-primary btn-sm" href="{{route('bagian.index', $item->id)}}">
                                   <i class="glyphicon glyphicon-pencil"></i> Bagian
                                 </a>
 
-	                			<a class="btn btn-primary btn-sm" href="{{route('modul.edit', $item->id)}}">
+	                			<a class="btn btn-primary btn-sm" href="{{route('bagian.edit', $item->id)}}">
 				                  <i class="glyphicon glyphicon-pencil"></i> Edit
 				                </a>
 
