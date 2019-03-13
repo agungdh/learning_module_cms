@@ -37,7 +37,7 @@
 
 			                {!! Form::open(['id' => 'formHapus' . $item->id, 'route' => ['bagian.destroy', $item->id], 'method' => 'delete']) !!}
                         <a class="btn btn-primary btn-sm" href="{{route('subbagian.index', $item->id)}}">
-                          <i class="glyphicon glyphicon-pencil"></i> Sub Bagian
+                          <i class="glyphicon glyphicon-new-window"></i> Sub Bagian
                         </a>
 
 	                			<a class="btn btn-primary btn-sm" href="{{route('bagian.edit', $item->id)}}">
