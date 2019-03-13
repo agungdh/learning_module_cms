@@ -11,6 +11,12 @@
 |
 */
 
+
+// Public Read Module
+Route::get('/read/{id_modul}', 'ReadController@index')->name('read.index');
+Route::get('/read/{id_modul}/chapter/{id_bagian}/section/{id_subbagian}', 'ReadController@read')->name('read.read');
+// END Public Read Module
+
 // Temp
 Route::get('/temp', 'TempController@index')->name('temp.index');
 Route::post('/temp', 'TempController@sendData')->name('temp.sendData');
