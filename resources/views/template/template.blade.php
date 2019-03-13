@@ -239,7 +239,7 @@
   <!-- /.content-wrapper -->
 
   <footer class="main-footer">
-    <strong>Copyright &copy; {{ date('Y') }} <a target="_blank" href="https://github.com/agungdh/">AgungDH</a>.</strong> All rights
+    <strong>Copyright &copy; {{ date('Y') }} <a target="_blank" href="https://github.com/agungdh/learning_module_cms">LMCMS</a>.</strong> All rights
     reserved.
   </footer>
 </div>
