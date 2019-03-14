@@ -6,7 +6,7 @@
   @php
   $currentMenuTitle = ADHhelper::getCurrentMenuTitle();
   @endphp
-  <title>{{$currentMenuTitle ? $currentMenuTitle . ' | ' : null }} {{env('APP_NAME')}}</title>
+  <title>{{$currentMenuTitle ? $currentMenuTitle . ' |' : null }} {{env('APP_NAME')}}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 

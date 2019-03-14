@@ -58,6 +58,10 @@
                           <i class="fa fa-file-text"></i> Document
                         </a>
 
+                        <a target="_blank" class="btn btn-primary btn-sm" href="{{route('read.read', [$modul->id, $bagian->posisi, $item->posisi])}}">
+                          <i class="glyphicon glyphicon glyphicon-link"></i> Baca
+                        </a>
+
 	                			<a class="btn btn-primary btn-sm" href="{{route('subbagian.edit', $item->id)}}">
 				                  <i class="glyphicon glyphicon-pencil"></i> Edit
 				                </a>

@@ -54,6 +54,14 @@
                           <i class="glyphicon glyphicon-new-window"></i> Sub Bagian
                         </a>
 
+                        @if(count($item->childs) > 0)
+                        <a target="_blank" class="btn btn-primary btn-sm" href="{{route('read.read', [$modul->id, $item->posisi, 1])}}">
+                        @else
+                        <a target="_blank" class="btn btn-primary btn-sm" href="{{route('read.index', $modul->id)}}">
+                        @endif
+                          <i class="glyphicon glyphicon glyphicon-link"></i> Baca
+                        </a>
+
 	                			<a class="btn btn-primary btn-sm" href="{{route('bagian.edit', $item->id)}}">
 				                  <i class="glyphicon glyphicon-pencil"></i> Edit
 				                </a>

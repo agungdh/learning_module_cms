@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{env('APP_NAME')}}</title>
+  <title>{{isset($subbagian) ? $subbagian->bagian : "Table Of Content"}} | {{$modul->modul}}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -43,7 +43,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="{{ route('main.index') }}" class="logo">
+    <a href="{{ route('read.index', $modul->id) }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>LM</b></span>
       <!-- logo for regular state and mobile devices -->

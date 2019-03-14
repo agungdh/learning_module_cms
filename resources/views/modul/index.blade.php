@@ -35,11 +35,16 @@
                 		<td>
 
 			                {!! Form::open(['id' => 'formHapus' . $item->id, 'route' => ['modul.destroy', $item->id], 'method' => 'delete']) !!}
-                                <a class="btn btn-primary btn-sm" href="{{route('bagian.index', $item->id)}}">
-                                  <i class="glyphicon glyphicon-new-window"></i> Bagian
-                                </a>
 
-	                			<a class="btn btn-primary btn-sm" href="{{route('modul.edit', $item->id)}}">
+                        <a class="btn btn-primary btn-sm" href="{{route('bagian.index', $item->id)}}">
+                          <i class="glyphicon glyphicon-new-window"></i> Bagian
+                        </a>
+
+                        <a target="_blank" class="btn btn-primary btn-sm" href="{{route('read.index', $item->id)}}">
+                          <i class="glyphicon glyphicon glyphicon-link"></i> Baca
+                        </a>
+
+                        <a class="btn btn-primary btn-sm" href="{{route('modul.edit', $item->id)}}">
 				                  <i class="glyphicon glyphicon-pencil"></i> Edit
 				                </a>
 
