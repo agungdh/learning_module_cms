@@ -3,7 +3,7 @@
 -- Host: 127.0.0.1	Database: lmcms
 -- ------------------------------------------------------
 -- Server version 	5.5.5-10.1.35-MariaDB
--- Date: Thu, 14 Mar 2019 12:53:43 +0700
+-- Date: Thu, 14 Mar 2019 20:58:25 +0700
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -34,7 +34,7 @@ CREATE TABLE `bagian` (
   KEY `parent_id` (`parent_id`),
   CONSTRAINT `bagian_ibfk_1` FOREIGN KEY (`id_modul`) REFERENCES `modul` (`id`),
   CONSTRAINT `bagian_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `bagian` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,12 +44,39 @@ CREATE TABLE `bagian` (
 LOCK TABLES `bagian` WRITE;
 /*!40000 ALTER TABLE `bagian` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `bagian` VALUES (1,7,'awer',NULL,NULL,1),(3,7,'vv',NULL,NULL,3),(4,7,'zzzzz',NULL,NULL,2),(8,NULL,'sadfasdf',NULL,1,1);
+INSERT INTO `bagian` VALUES (10,7,'Version Control',NULL,NULL,2),(11,NULL,'What is version control ?','<p>test</p>\r\n<ol>\r\n<li>1</li>\r\n<li>2</li>\r\n<li>3</li>\r\n<li>4</li>\r\n</ol>\r\n<p>q</p>\r\n<p>q</p>\r\n<p>q</p>\r\n<p>sa</p>\r\n<p><img class=\"img-responsive\" src=\"https://cdn-images-1.medium.com/fit/c/50/50/1*iwyBHCDpkA0uF9R6e6unsQ.png\" alt=\"\" width=\"100\" height=\"100\" /></p>\r\n<ul>\r\n<li>asd</li>\r\n<li>a</li>\r\n<li>a</li>\r\n<li>&nbsp;</li>\r\n<li>a</li>\r\n</ul>\r\n<p>&nbsp;</p>',10,1),(12,NULL,'GIT',NULL,10,2),(13,NULL,'SVN',NULL,10,3),(14,7,'Looping',NULL,NULL,1),(15,NULL,'For',NULL,14,2),(16,NULL,'While',NULL,14,1),(17,NULL,'Foreach',NULL,14,3),(18,7,'kosong',NULL,NULL,3),(19,NULL,'hh',NULL,18,1);
 /*!40000 ALTER TABLE `bagian` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `bagian` with 4 row(s)
+-- Dumped table `bagian` with 10 row(s)
+--
+
+--
+-- Table structure for table `gambar`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gambar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `deskripsi` varchar(191) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gambar`
+--
+
+LOCK TABLES `gambar` WRITE;
+/*!40000 ALTER TABLE `gambar` DISABLE KEYS */;
+SET autocommit=0;
+/*!40000 ALTER TABLE `gambar` ENABLE KEYS */;
+UNLOCK TABLES;
+COMMIT;
+
+-- Dumped table `gambar` with 0 row(s)
 --
 
 --
@@ -126,7 +153,7 @@ CREATE TABLE `menu` (
   PRIMARY KEY (`id`),
   KEY `parent_id` (`parent_id`),
   CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `menu` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,12 +163,12 @@ CREATE TABLE `menu` (
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `menu` VALUES (80,'Dashboard','fa fa-dashboard','main.index',NULL,1),(111,'Admin','fa fa-dashboard',NULL,NULL,2),(112,'Menu','fa fa-dashboard','menu.index',111,1),(113,'Peran','fa fa-dashboard','peran.index',111,2);
+INSERT INTO `menu` VALUES (80,'Dashboard','fa fa-dashboard','main.index',NULL,1),(111,'Admin','fa fa-dashboard',NULL,NULL,4),(112,'Menu','fa fa-dashboard','menu.index',111,1),(113,'Peran','fa fa-dashboard','peran.index',111,2),(115,'Modul','fa fa-dashboard','modul.index',NULL,2),(116,'Gambar','fa fa-dashboard','gambar.index',NULL,3);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `menu` with 4 row(s)
+-- Dumped table `menu` with 6 row(s)
 --
 
 --
@@ -157,7 +184,7 @@ CREATE TABLE `modul` (
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `modul_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `pos`.`user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -167,12 +194,12 @@ CREATE TABLE `modul` (
 LOCK TABLES `modul` WRITE;
 /*!40000 ALTER TABLE `modul` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `modul` VALUES (5,'PHP for dummies 1 agung',3),(7,'JAVA is EZ PZ',1);
+INSERT INTO `modul` VALUES (5,'PHP for dummies 1 agung',3),(7,'JAVA is EZ PZ',1),(9,'test',1);
 /*!40000 ALTER TABLE `modul` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `modul` with 2 row(s)
+-- Dumped table `modul` with 3 row(s)
 --
 
 --
@@ -246,4 +273,4 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on: Thu, 14 Mar 2019 12:53:43 +0700
+-- Dump completed on: Thu, 14 Mar 2019 20:58:25 +0700
