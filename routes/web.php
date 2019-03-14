@@ -14,7 +14,7 @@
 
 // Public Read Module
 Route::get('/read/{id_modul}', 'ReadController@index')->name('read.index');
-Route::get('/read/{id_modul}/chapter/{id_bagian}/section/{id_subbagian}', 'ReadController@read')->name('read.read');
+Route::get('/read/{id_modul}/chapter/{posisi_bagian}/section/{posisi_subbagian}', 'ReadController@read')->name('read.read');
 // END Public Read Module
 
 // Temp

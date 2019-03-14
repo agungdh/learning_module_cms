@@ -1,4 +1,4 @@
-@extends('template.readtemplate');
+@extends('template.readtemplate')
 
 @section('title')
 JUDUL

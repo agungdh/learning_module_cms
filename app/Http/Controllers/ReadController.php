@@ -20,11 +20,11 @@ class ReadController extends Controller
         return view('read.index', compact(['modul']));
     }
 
-    public function read($id_modul, $id_bagian, $id_subbagian)
+    public function read($id_modul, $posisi_bagian, $posisi_subbagian)
     {
         $modul = Modul::findOrFail($id_modul);
-        $bagian = Bagian::findOrFail($id_bagian);
-        $subbagian = Bagian::findOrFail($id_subbagian);
+        $bagian = Bagian::where(['id_modul' => $id_modul, 'posisi' => $posisi_bagian])->firstOrFail();
+        $subbagian = Bagian::where(['parent_id' => $bagian->id, 'posisi' => $posisi_subbagian])->firstOrFail();
 
         return view('read.read', compact(['modul', 'bagian', 'subbagian']));
     }

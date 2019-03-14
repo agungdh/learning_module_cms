@@ -84,7 +84,7 @@
             </a>
             <ul class="treeview-menu">
               @foreach($menuBagian->childs as $menuSubBagian)
-              <li class="{{ isset($subbagian) && $subbagian->id == $menuSubBagian->id ? "active" : null}}"><a href="{{route('read.read', [$modul->id, $menuBagian->id, $menuSubBagian->id])}}"><i class="fa fa-circle-o"></i> {{$menuSubBagian->bagian}}</a></li>
+              <li class="{{ isset($subbagian) && $subbagian->id == $menuSubBagian->id ? "active" : null}}"><a href="{{route('read.read', [$modul->id, $menuBagian->posisi, $menuSubBagian->posisi])}}"><i class="fa fa-circle-o"></i> {{$menuSubBagian->bagian}}</a></li>
               @endforeach
             </ul>
           </li>
