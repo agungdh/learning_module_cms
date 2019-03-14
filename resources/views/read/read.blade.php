@@ -19,7 +19,14 @@
 	</div>
 
 	<div class="box-footer" style="text-align: center;">
-      <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-triangle-left"></i> Simpan</button>
+      @if($subbagian->posisi > 1)
+      <a href="{{route('read.read', [$modul->id, $bagian->posisi, $subbagian->posisi - 1])}}" class="btn btn-primary"><i class="glyphicon glyphicon-triangle-left"></i> {{$bagian->childs[$subbagian->posisi - 2]->bagian}}</a>
+      @elseif($bagian->posisi > 1 && count($modul->bagians[$bagian->posisi - 2]->childs) > 0)
+      <a href="{{route('read.read', [$modul->id, $bagian->posisi - 1, count($modul->bagians[$bagian->posisi - 2]->childs)])}}" class="btn btn-primary"><i class="glyphicon glyphicon-triangle-left"></i> {{$modul->bagians[$bagian->posisi - 2]->childs[count($modul->bagians[$bagian->posisi - 2]->childs) - 1]->bagian}}</a>
+      @elseif($bagian->posisi == 1 && $subbagian->posisi == 1)
+      <a href="{{route('read.index', $modul->id)}}" class="btn btn-primary"><i class="glyphicon glyphicon-triangle-left"></i> Table Of Content</a>
+      @endif
+
       @if($subbagian->posisi < count($bagian->childs))
       <a href="{{route('read.read', [$modul->id, $bagian->posisi, $subbagian->posisi + 1])}}" class="btn btn-primary">{{$bagian->childs[$subbagian->posisi]->bagian}} <i class="glyphicon glyphicon-triangle-right"></i></a>
       @elseif($bagian->posisi < count($modul->bagians) && count($modul->bagians[$bagian->posisi]->childs) > 0)

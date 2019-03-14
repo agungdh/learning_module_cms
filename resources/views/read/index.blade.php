@@ -5,7 +5,8 @@
 @endsection
 
 @section('nav')
-<li><a href="{{ route('read.index', $modul->id) }}"><i class="fa fa-home"></i> {{$modul->modul}}</a></li>
+<li><i class="fa fa-home"></i> {{$modul->modul}}</li>
+<li>Table Of Content</li>
 @endsection
 
 @section('content')
