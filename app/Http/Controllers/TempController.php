@@ -13,6 +13,7 @@ class TempController extends Controller
 
     public function index()
     {
+        abort(400);
         $result = ADHhelper::authCan('menu.index');
 
         // $result = HakAkses::where(['id_user' => 1, 'route' => 'menu.create'])->first();

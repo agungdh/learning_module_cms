@@ -29,7 +29,7 @@
 	<div id="notfound">
 		<div class="notfound">
 			<div class="notfound-404">
-				<h1>{{substr($code, 0, 1)}}<span>{{substr($code, 1, 1)}}</span>{{substr($code, 2, 1)}}</h1>
+				<h1>{{$code}}</h1>
 			</div>
 			<p>{{$message}}</p>
 			<a href="{{route('main.index')}}">Home Page</a>
