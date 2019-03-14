@@ -67,10 +67,10 @@ class MenuController extends Controller
 
         $bolds = ADHhelper::menuBoldParents($request->id);
      
-        $menusTree = Menu::with('childs.childs.childs')->where('parent_id', null)->get();
+        $menusTree = Menu::with('childs.childs.childs')->where('parent_id', null)->orderBy('posisi')->get();
 
         if ($request->id) {
-            $menus = Menu::with('childs.childs.childs')->where('parent_id', $request->id)->get();
+            $menus = Menu::with('childs.childs.childs')->where('parent_id', $request->id)->orderBy('posisi')->get();
             $menu = Menu::find($request->id);
 
             if ($menu->route != null) {
@@ -79,12 +79,10 @@ class MenuController extends Controller
 
             $countTree = $this->countTree($menu);
         } else {
-            $menus = Menu::with('childs.childs.childs')->where('parent_id', null)->get();
+            $menus = Menu::with('childs.childs.childs')->where('parent_id', null)->orderBy('posisi')->get();
             $menu = null;
         }
-        
-        $menus = ADHhelper::sortMenu($menus);
-        
+                
         $countTree = isset($countTree) ? $countTree : 1;
         
         if ($countTree > 3) {
@@ -230,13 +228,15 @@ class MenuController extends Controller
     public function destroy($id)
     {
         $menu = Menu::find($id);
-        $menus = Menu::where(['parent_id' => $menu->parent_id])->where('posisi', '>', $menu->posisi)->decrement('posisi');
+
 
         $id = $menu->parent_id ?: null;
         $posisi = $menu->posisi;
 
         try {
             $menu->delete();   
+            
+            Menu::where(['parent_id' => $menu->parent_id])->where('posisi', '>', $menu->posisi)->decrement('posisi');
         } catch (QueryException $exception) {
             return redirect()->back()->with('alert', [
                 'title' => 'ERROR !!!',

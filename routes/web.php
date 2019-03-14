@@ -71,6 +71,8 @@ Route::middleware('MustLoggedIn')->group(function () {
 	Route::get('/bagian/{id}/edit', 'BagianController@edit')->name('bagian.edit');
 	Route::put('/bagian/{id}', 'BagianController@update')->name('bagian.update');
 	Route::delete('/bagian/{id}', 'BagianController@destroy')->name('bagian.destroy');
+	Route::get('/bagian/{id}/up', 'BagianController@up')->name('bagian.up');
+	Route::get('/bagian/{id}/down', 'BagianController@down')->name('bagian.down');
 	// END Bagian
 
 	// Sub Bagian

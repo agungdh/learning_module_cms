@@ -21,9 +21,10 @@
             	<a class="btn btn-success btn-sm" href="{{route('bagian.create', $modul->id)}}">
                   <i class="glyphicon glyphicon-plus"></i> Tambah
                 </a><br><br>
-              <table class="table table-bordered table-hover datatable" style="width: 100%">
+              <table class="table table-bordered table-hover thisPageDatatable" style="width: 100%">
                 <thead>
 	                <tr>
+                    <th>Move</th>
 	                  <th>Bagian</th>
 	                  <th>Proses</th>
 	                </tr>
@@ -31,6 +32,19 @@
                 <tbody>
                 	@foreach($bagians as $item)
                 	<tr>
+                    <td style="text-align: center;">
+                        @if($item->posisi != 1)
+                        <a class="btn btn-info btn-sm" href="{{route('bagian.up', $item->id)}}">
+                          <i class="glyphicon glyphicon-arrow-up"></i>
+                        </a>
+                        @endif
+                        @if($item->posisi != count($bagians))
+                        <a class="btn btn-info btn-sm" href="{{route('bagian.down', $item->id)}}">
+                          <i class="glyphicon glyphicon-arrow-down"></i>
+                        </a>
+                        @endif
+                    </td>
+
                 		<td>{{$item->bagian}}</td>
                 		
                 		<td>
@@ -72,5 +86,10 @@ function hapus(id) {
 	  $("#formHapus" + id).submit();
 	});
 }
+$('.thisPageDatatable').DataTable({
+    responsive: false,
+    "scrollX": true,
+    "ordering": false,
+});
 </script>
 @endsection

@@ -25,7 +25,7 @@
             	<a class="btn btn-success btn-sm" href="{{route('subbagian.create', $bagian->id)}}">
                   <i class="glyphicon glyphicon-plus"></i> Tambah
                 </a><br><br>
-              <table class="table table-bordered table-hover datatable" style="width: 100%">
+              <table class="table table-bordered table-hover thisPageDatatable" style="width: 100%">
                 <thead>
 	                <tr>
 	                  <th>Sub Bagian</th>
@@ -77,5 +77,10 @@ function hapus(id) {
 	  $("#formHapus" + id).submit();
 	});
 }
+$('.thisPageDatatable').DataTable({
+    responsive: false,
+    "scrollX": true,
+    "ordering": false,
+});
 </script>
 @endsection

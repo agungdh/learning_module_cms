@@ -123,10 +123,8 @@
         } else {
           $bolds = [];
         }
-
-        $menusTree1 = ADHhelper::sortMenu(ADHhelper::templateMenu());
         @endphp
-        @foreach($menusTree1 as $lvl1)
+        @foreach(ADHhelper::templateMenu() as $lvl1)
           @if($lvl1->route == null)
           <li class="treeview {{in_array($lvl1->id, $bolds) ? 'active' : null}}">
             <a href="#">
@@ -136,10 +134,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              @php
-              $menusTree2 = ADHhelper::sortMenu($lvl1->childs);
-              @endphp
-              @foreach($menusTree2 as $lvl2)
+              @foreach($lvl1->childs as $lvl2)
                 @if($lvl2->route == null)
                 <li class="treeview {{in_array($lvl2->id, $bolds) ? 'active' : null}}">
                     <a href="#"><i class="{{$lvl2->icon}}"></i> {{$lvl2->menu}}
@@ -148,10 +143,7 @@
                     </span>
                   </a>
                   <ul class="treeview-menu">
-                    @php
-                    $menusTree3 = ADHhelper::sortMenu($lvl2->childs);
-                    @endphp
-                    @foreach($menusTree3 as $lvl3)
+                    @foreach($lvl2->childs as $lvl3)
                       @if($lvl3->route == null)
                         <li class="treeview {{in_array($lvl3->id, $bolds) ? 'active' : null}}">
                           <a href="#"><i class="{{$lvl3->icon}}"></i> {{$lvl3->menu}}
@@ -160,10 +152,7 @@
                             </span>
                           </a>
                           <ul class="treeview-menu">
-                              @php
-                              $menusTree4 = ADHhelper::sortMenu($lvl3->childs);
-                              @endphp
-                              @foreach($menusTree4 as $lvl4)
+                              @foreach($lvl3->childs as $lvl4)
                                   @if(env('SHOW_ALL_MENU') || ADHhelper::authCan($lvl4->route))
                                     <li class="{{$lvl4->id == $menuId ? 'active' : null}}">
                                       <a href="{{ route($lvl4->route) }}">

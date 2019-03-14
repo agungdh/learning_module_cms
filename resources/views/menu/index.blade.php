@@ -17,9 +17,8 @@
                 @php
                 $currentRoute = ADHhelper::getCurrentRoute();
 
-                $menusTree1 = ADHhelper::sortMenu($menusTree);
                 @endphp
-                @foreach($menusTree1 as $lvl1)
+                @foreach($menusTree as $lvl1)
                         <li class="list-group-item">{!!"<i class='{$lvl1->icon}'></i>"!!}
                             @if($lvl1->id == $request->id || in_array($lvl1->id, $bolds))
                             <b><u>
@@ -33,10 +32,7 @@
                             @endif
                                 <span class="badge">{{count($lvl1->childs)}}</span></li> 
                                 @endif
-                    @php
-                    $menusTree2 = ADHhelper::sortMenu($lvl1->childs);
-                    @endphp
-                    @foreach($menusTree2 as $lvl2)
+                    @foreach($lvl1->childs as $lvl2)
                         <li class="list-group-item">{!!"<i class='{$lvl1->icon}'></i><i class='{$lvl2->icon}'></i>"!!}
                             @if($lvl2->id == $request->id || in_array($lvl2->id, $bolds))
                             <b><u>
@@ -50,10 +46,7 @@
                             @endif
                                 <span class="badge">{{count($lvl2->childs)}}</span></li> 
                                 @endif
-                        @php
-                        $menusTree3 = ADHhelper::sortMenu($lvl2->childs);
-                        @endphp
-                        @foreach($menusTree3 as $lvl3)
+                        @foreach($lvl2->childs as $lvl3)
                             <li class="list-group-item">{!!"<i class='{$lvl1->icon}'></i><i class='{$lvl2->icon}'></i><i class='{$lvl3->icon}'></i>"!!}
                                 @if($lvl3->id == $request->id || in_array($lvl3->id, $bolds))
                                 <b><u>
@@ -67,10 +60,7 @@
                                 @endif
                                     <span class="badge">{{count($lvl3->childs)}}</span></li> 
                                     @endif
-                            @php
-                            $menusTree4 = ADHhelper::sortMenu($lvl3->childs);
-                            @endphp
-                            @foreach($menusTree4 as $lvl4)
+                            @foreach($lvl3->childs as $lvl4)
                                 <li class="list-group-item">{!!"<i class='{$lvl1->icon}'></i><i class='{$lvl2->icon}'></i><i class='{$lvl3->icon}'></i><i class='{$lvl4->icon}'></i>"!!}
                                     @if($lvl4->id == $request->id || in_array($lvl4->id, $bolds))
                                     <b><u>

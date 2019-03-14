@@ -14,6 +14,7 @@ class Bagian extends Model
                             'bagian',
                             'text',
                             'parent_id',
+                            'posisi',
     					];
 
     public function user()

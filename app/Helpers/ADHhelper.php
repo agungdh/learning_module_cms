@@ -71,18 +71,9 @@ class ADHhelper extends Pustaka
     }
 
     public static function templateMenu() {
-        $menusTree = Menu::with('childs.childs.childs')->where('parent_id', null)->get();
+        $menusTree = Menu::with('childs.childs.childs')->where('parent_id', null)->orderBy('posisi')->get();
 
         return $menusTree;
-    }
-
-    public static function sortMenu($menus) {
-        $menusToDo = [];
-        foreach($menus as $item) {
-            $menusToDo[$item->posisi] = $item;
-        }
-        ksort($menusToDo);
-        return $menusToDo;
     }
 
     public static function getCurrentRoute()
