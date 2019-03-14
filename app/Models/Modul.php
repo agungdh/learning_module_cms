@@ -21,6 +21,6 @@ class Modul extends Model
 
 	public function bagians()
     {
-        return $this->hasMany('App\Models\Bagian', 'id_modul');
+        return $this->hasMany('App\Models\Bagian', 'id_modul')->orderBy('posisi');
     }
 }

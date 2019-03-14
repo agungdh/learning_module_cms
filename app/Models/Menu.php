@@ -20,7 +20,7 @@ class Menu extends Model
 
     public function childs()
     {
-        return $this->hasMany('App\Models\Menu', 'parent_id')->orderBy('posisi', 'desc');
+        return $this->hasMany('App\Models\Menu', 'parent_id')->orderBy('posisi');
     }
 
     public function parent()

@@ -29,7 +29,7 @@ class Bagian extends Model
 
     public function childs()
     {
-        return $this->hasMany('App\Models\Bagian', 'parent_id');
+        return $this->hasMany('App\Models\Bagian', 'parent_id')->orderBy('posisi');
     }
 
     public function parent()
