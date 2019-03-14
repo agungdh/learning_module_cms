@@ -70,7 +70,7 @@
       <ul class="sidebar-menu" data-widget="tree">
           <li class="{{!isset($bagian) && !isset($subbagian) ? "active" : null}}">
             <a href="{{route('read.index', $modul->id)}}">
-              <i class="fa fa-list"></i> <span>Index</span>
+              <i class="fa fa-list"></i> <span>Table Of Content</span>
             </a>
           </li>
 

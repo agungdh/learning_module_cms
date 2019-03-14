@@ -1,10 +1,13 @@
 @extends('template.readtemplate')
 
 @section('title')
-JUDUL
+{{$modul->modul}}
 @endsection
 
 @section('nav')
+<li><i class="fa fa-home"></i> {{$modul->modul}}</li>
+<li>{{$bagian->bagian}}</li>
+<li>{{$subbagian->bagian}}</li>
 @endsection
 
 @section('content')
