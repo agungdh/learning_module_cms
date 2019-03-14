@@ -40,8 +40,12 @@
                                   <i class="glyphicon glyphicon-pencil"></i> Edit
                                 </a>
 
-	                			<button type="button" class="btn btn-primary btn-sm" onclick="copyLink('{{$item->id}}')">
-				                  <i class="glyphicon glyphicon-pencil"></i> Copy Link
+                                <button type="button" class="btn btn-primary btn-sm" onclick="lihatGambar('{{$item->id}}', '{{$item->deskripsi}}')">
+                                  <i class="glyphicon glyphicon-eye-open"></i> Lihat Gambar
+                                </button>
+
+	                			<button type="button" class="btn btn-primary btn-sm" onclick="salinAlamat('{{$item->id}}')">
+				                  <i class="glyphicon glyphicon-copy"></i> Salin Alamat
 				                </button>
 
 			              		<button type="button" class="btn btn-danger btn-sm" onclick="hapus('{{ $item->id }}')"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
@@ -55,6 +59,18 @@
             <!-- /.box-body -->
           </div>
 	</div>
+</div>
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">              
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong><p id="deskripsi" style="text-align: center;"></p></strong>
+        <img src="" class="imagepreview" style="width: 100%;" >
+      </div>
+    </div>
+  </div>
 </div>
 @endsection
 
@@ -72,8 +88,28 @@ function hapus(id) {
 	  $("#formHapus" + id).submit();
 	});
 }
-function copyLink(id) {
-    swal(id);
+function lihatGambar(id, deskripsi) {
+    $("#deskripsi").text(deskripsi);
+    $('.imagepreview').attr('src', "{{asset('storage/files/gambar')}}/" + id);
+    $('#imagemodal').modal('show'); 
+}
+function salinAlamat(str) {
+    // Create new element
+    var el = document.createElement('textarea');
+    // Set value (string to be copied)
+    el.value = "{{asset('storage/files/gambar')}}/" + str;
+    // Set non-editable to avoid focus and move outside of view
+    el.setAttribute('readonly', '');
+    el.style = {position: 'absolute', left: '-9999px'};
+    document.body.appendChild(el);
+    // Select text inside element
+    el.select();
+    // Copy text to clipboard
+    document.execCommand('copy');
+    // Remove temporary element
+    document.body.removeChild(el);
+
+    swal('Berhasil !!!', 'Alamat telah di salin', 'success');
 }
 </script>
 @endsection
