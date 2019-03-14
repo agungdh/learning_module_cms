@@ -24,7 +24,7 @@
               <table class="table table-bordered table-hover thisPageDatatable" style="width: 100%">
                 <thead>
 	                <tr>
-                    <th>Move</th>
+                      <th>Move</th>
 	                  <th>Bagian</th>
 	                  <th>Proses</th>
 	                </tr>

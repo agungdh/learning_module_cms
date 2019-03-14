@@ -13,6 +13,35 @@ use ADHhelper;
 
 class SubBagianController extends Controller
 {
+    private function move($id, $up)
+    {
+        $dari = Bagian::find($id);
+        $ke = Bagian::where([
+            'parent_id' => $dari->parent_id,
+            'posisi' => $up ? $dari->posisi - 1 : $dari->posisi + 1,
+        ])->first();
+
+        $dariPosisi = $dari->posisi;
+        $kePosisi = $ke->posisi;
+
+        $dari->posisi = $kePosisi;
+        $ke->posisi = $dariPosisi;
+
+        $dari->save();
+        $ke->save();
+
+        return route('subbagian.index', $dari->parent_id);
+    }
+    
+    public function up($id) 
+    {
+        return redirect($this->move($id, true));
+    }
+
+    public function down($id) 
+    {
+        return redirect($this->move($id, false));
+    }
 
     private function authorCheckBagian($id)
     {
@@ -71,6 +100,13 @@ class SubBagianController extends Controller
         $data['bagian'] = $request->subbagian;
         $data['parent_id'] = $id;
 
+        $bagian = Bagian::find($id);
+        if (count($bagian->childs) > 0) {
+            $data['posisi'] = count($bagian->childs) + 1;
+        } else {
+            $data['posisi'] = 1;
+        }
+
         Bagian::create($data);
 
         return redirect()->route('subbagian.index', $id)->with('alert', [
@@ -124,11 +160,13 @@ class SubBagianController extends Controller
             return redirect()->route('main.index');
         }
         
-        $bagian = Bagian::find($id);
-        $parent_id = $bagian->parent_id;
+        $subbagian = Bagian::find($id);
+        $parent_id = $subbagian->parent_id;
      
         try {
-            $bagian->delete();
+            $subbagian->delete();
+
+            Bagian::where(['parent_id' => $parent_id])->where('posisi', '>', $subbagian->posisi)->decrement('posisi');
         } catch (QueryException $exception) {
             return redirect()->back()->with('alert', [
                 'title' => 'ERROR !!!',

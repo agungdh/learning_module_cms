@@ -3,7 +3,7 @@
 -- Host: 127.0.0.1	Database: lmcms
 -- ------------------------------------------------------
 -- Server version 	5.5.5-10.1.35-MariaDB
--- Date: Wed, 13 Mar 2019 15:11:24 +0700
+-- Date: Thu, 14 Mar 2019 12:53:43 +0700
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,12 +28,13 @@ CREATE TABLE `bagian` (
   `bagian` varchar(191) NOT NULL,
   `text` longtext,
   `parent_id` int(11) DEFAULT NULL,
+  `posisi` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_modul` (`id_modul`),
   KEY `parent_id` (`parent_id`),
   CONSTRAINT `bagian_ibfk_1` FOREIGN KEY (`id_modul`) REFERENCES `modul` (`id`),
   CONSTRAINT `bagian_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `bagian` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +44,7 @@ CREATE TABLE `bagian` (
 LOCK TABLES `bagian` WRITE;
 /*!40000 ALTER TABLE `bagian` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `bagian` VALUES (7,7,'Looping',NULL,NULL),(8,NULL,'What is looping ?',NULL,7),(9,NULL,'For',NULL,7),(10,NULL,'While',NULL,7);
+INSERT INTO `bagian` VALUES (1,7,'awer',NULL,NULL,1),(3,7,'vv',NULL,NULL,3),(4,7,'zzzzz',NULL,NULL,2),(8,NULL,'sadfasdf',NULL,1,1);
 /*!40000 ALTER TABLE `bagian` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
@@ -125,7 +126,7 @@ CREATE TABLE `menu` (
   PRIMARY KEY (`id`),
   KEY `parent_id` (`parent_id`),
   CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `menu` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,12 +136,12 @@ CREATE TABLE `menu` (
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `menu` VALUES (80,'Dashboard','fa fa-dashboard','main.index',NULL,1),(82,'Master','fa fa-list-ul',NULL,NULL,2),(111,'Admin','fa fa-dashboard',NULL,NULL,3),(112,'Menu','fa fa-dashboard','menu.index',111,1),(113,'Peran','fa fa-dashboard','peran.index',111,2);
+INSERT INTO `menu` VALUES (80,'Dashboard','fa fa-dashboard','main.index',NULL,1),(111,'Admin','fa fa-dashboard',NULL,NULL,2),(112,'Menu','fa fa-dashboard','menu.index',111,1),(113,'Peran','fa fa-dashboard','peran.index',111,2);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `menu` with 5 row(s)
+-- Dumped table `menu` with 4 row(s)
 --
 
 --
@@ -156,7 +157,7 @@ CREATE TABLE `modul` (
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `modul_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `pos`.`user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,4 +246,4 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on: Wed, 13 Mar 2019 15:11:24 +0700
+-- Dump completed on: Thu, 14 Mar 2019 12:53:43 +0700

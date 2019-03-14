@@ -28,13 +28,26 @@
               <table class="table table-bordered table-hover thisPageDatatable" style="width: 100%">
                 <thead>
 	                <tr>
-	                  <th>Sub Bagian</th>
+	                  <th>Move</th>
+                    <th>Sub Bagian</th>
 	                  <th>Proses</th>
 	                </tr>
                 </thead>
                 <tbody>
                 	@foreach($subbagians as $item)
                 	<tr>
+                    <td style="text-align: center;">
+                        @if($item->posisi != 1)
+                        <a class="btn btn-info btn-sm" href="{{route('subbagian.up', $item->id)}}">
+                          <i class="glyphicon glyphicon-arrow-up"></i>
+                        </a>
+                        @endif
+                        @if($item->posisi != count($subbagians))
+                        <a class="btn btn-info btn-sm" href="{{route('subbagian.down', $item->id)}}">
+                          <i class="glyphicon glyphicon-arrow-down"></i>
+                        </a>
+                        @endif
+                    </td>
                 		<td>{{$item->bagian}}</td>
                 		
                 		<td>

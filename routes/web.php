@@ -84,6 +84,8 @@ Route::middleware('MustLoggedIn')->group(function () {
 	Route::delete('/subbagian/{id}', 'SubBagianController@destroy')->name('subbagian.destroy');
 	Route::get('/subbagian/{id}/document', 'SubBagianController@document')->name('subbagian.document');
 	Route::put('/subbagian/{id}/document', 'SubBagianController@saveDocument')->name('subbagian.saveDocument');
+	Route::get('/subbagian/{id}/up', 'SubBagianController@up')->name('subbagian.up');
+	Route::get('/subbagian/{id}/down', 'SubBagianController@down')->name('subbagian.down');
 	// END Sub Bagian
 
 });
