@@ -13,9 +13,10 @@
 	<div class="col-md-12">
 	   <div class="box box-primary">
         <div class="box-header with-border">
-			<h3 class="box-title">Table Of Content</h3>
-		</div>
+    			<h3 class="box-title">Table Of Content</h3>
+    		</div>
         <!-- /.box-header -->
+
         <div class="box-body">
           <ol>
           	@foreach($modul->bagians as $menuBagian)
@@ -30,6 +31,12 @@
           </ol>
         </div>
         <!-- /.box-body -->
+
+        <div class="box-footer" style="text-align: center;">
+          @if(count($modul->bagians) > 0 && count($modul->bagians[0]->childs) > 0)
+          <a href="{{route('read.read', [$modul->id, 1, 1])}}" class="btn btn-primary">{{$modul->bagians[0]->childs[0]->bagian}} <i class="glyphicon glyphicon-triangle-right"></i></a>
+          @endif
+        </div>
       </div>
       <!-- /.box -->
     </div>
