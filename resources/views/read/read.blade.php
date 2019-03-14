@@ -45,3 +45,12 @@
     <!-- ./col -->
 </div>
 @endsection
+
+@section('css')
+<style type="text/css">
+iframe, object, embed {
+        max-width: 100%;
+        max-height: 100%;
+}
+</style>
+@endsection

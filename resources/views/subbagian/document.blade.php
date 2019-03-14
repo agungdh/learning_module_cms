@@ -46,9 +46,21 @@
 <script>
 tinymce.init({
 	selector:'textarea',
-	plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
-  	toolbar: 'formatselect | bold italic strikethrough forecolor backcolor formatpainter | link image media | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
-  	height: 400
+	plugins: 'print preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern code help',
+  	toolbar: 'formatselect | bold italic strikethrough forecolor backcolor formatpainter | link image media | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment code preview',
+  	height: 400,
+ 	image_class_list: [
+    	{title: 'Responsive', value: 'img-responsive'}
+    ]
 });
 </script>
+@endsection
+
+@section('css')
+<style type="text/css">
+iframe, object, embed {
+        max-width: 100%;
+        max-height: 100%;
+}
+</style>
 @endsection
