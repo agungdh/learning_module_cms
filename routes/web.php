@@ -64,6 +64,15 @@ Route::middleware('MustLoggedIn')->group(function () {
 	Route::delete('/modul/{id}', 'ModulController@destroy')->name('modul.destroy');
 	// END Modul
 
+	// Modul
+	Route::get('/gambar', 'GambarController@index')->name('gambar.index');
+	Route::get('/gambar/create', 'GambarController@create')->name('gambar.create');
+	Route::post('/gambar', 'GambarController@store')->name('gambar.store');
+	Route::get('/gambar/{id}/edit', 'GambarController@edit')->name('gambar.edit');
+	Route::put('/gambar/{id}', 'GambarController@update')->name('gambar.update');
+	Route::delete('/gambar/{id}', 'GambarController@destroy')->name('gambar.destroy');
+	// END Modul
+
 	// Bagian
 	Route::get('/bagian/{id}', 'BagianController@index')->name('bagian.index');
 	Route::get('/bagian/{id}/create', 'BagianController@create')->name('bagian.create');

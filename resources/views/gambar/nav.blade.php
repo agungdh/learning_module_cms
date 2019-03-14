@@ -1,0 +1,1 @@
+<li><a href="{{ route('gambar.index') }}"><i class="fa fa-home"></i> Gambar</a></li>
