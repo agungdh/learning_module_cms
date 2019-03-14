@@ -80,7 +80,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{asset('storage/assets')}}/AdminLTE-2.4.5/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{session('login') ? ADHhelper::getUserData()->username : "Nama"}}</span>
+              <span class="hidden-xs">{{session('login') ? ADHhelper::getUserData()->nama : "Nama"}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -88,7 +88,7 @@
                 <img src="{{asset('storage/assets')}}/AdminLTE-2.4.5/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  {{session('login') ? ADHhelper::getUserData()->username : "Nama"}}
+                  {{session('login') ? ADHhelper::getUserData()->nama : "Nama"}}
                   <small>{{session('login') ? ADHhelper::getUserData()->username : "Username"}}</small>
                 </p>
               </li>
