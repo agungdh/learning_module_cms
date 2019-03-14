@@ -9,6 +9,9 @@
   <title>{{$currentMenuTitle ? $currentMenuTitle . ' | ' : null }} {{env('APP_NAME')}}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link id="favicon" rel="icon" type="image/x-icon" href="{{asset('storage/assets')}}/favicon/favicon.ico">
+
   <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/font-awesome/css/font-awesome.min.css">
@@ -57,9 +60,9 @@
     <!-- Logo -->
     <a href="{{ route('main.index') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>LM</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>LM</b>CMS</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -219,9 +222,8 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="container">
+
         @yield('content')
-      </div>
 
     </section>
     <!-- /.content -->
