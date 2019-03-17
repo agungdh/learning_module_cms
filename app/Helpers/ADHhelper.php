@@ -12,6 +12,19 @@ use agungdh\Pustaka;
 
 class ADHhelper extends Pustaka
 {
+    public static function getMyPrevileges() {
+        return HakAkses::where('id_user', session('userID'))->get();
+    }
+
+    public static function templateMenuCheckForChildsPrevileges($parent) {
+        $routeFilter = [];
+        foreach (self::getMyPrevileges() as $item) {
+            $routeFilter[] = $item->route;
+        }
+
+        return Menu::where('parent_id', $parent->id)->whereIn('route', $routeFilter)->get();
+    }
+
     public static function getMenuTitle($route) {
         return Menu::find(self::getMenuIdByRouteSlug($route))->menu;
     }

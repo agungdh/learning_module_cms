@@ -127,7 +127,7 @@
         }
         @endphp
         @foreach(ADHhelper::templateMenu() as $lvl1)
-          @if($lvl1->route == null)
+          @if($lvl1->route == null && count(ADHhelper::templateMenuCheckForChildsPrevileges($lvl1)) > 0)
           <li class="treeview {{in_array($lvl1->id, $bolds) ? 'active' : null}}">
             <a href="#">
               <i class="{{$lvl1->icon}}"></i> <span>{{$lvl1->menu}}</span>
@@ -137,7 +137,7 @@
             </a>
             <ul class="treeview-menu">
               @foreach($lvl1->childs as $lvl2)
-                @if($lvl2->route == null)
+                @if($lvl2->route == null && count(ADHhelper::templateMenuCheckForChildsPrevileges($lvl2)) > 0)
                 <li class="treeview {{in_array($lvl2->id, $bolds) ? 'active' : null}}">
                     <a href="#"><i class="{{$lvl2->icon}}"></i> {{$lvl2->menu}}
                     <span class="pull-right-container">
@@ -146,7 +146,7 @@
                   </a>
                   <ul class="treeview-menu">
                     @foreach($lvl2->childs as $lvl3)
-                      @if($lvl3->route == null)
+                      @if($lvl3->route == null && count(ADHhelper::templateMenuCheckForChildsPrevileges($lvl3)) > 0)
                         <li class="treeview {{in_array($lvl3->id, $bolds) ? 'active' : null}}">
                           <a href="#"><i class="{{$lvl3->icon}}"></i> {{$lvl3->menu}}
                             <span class="pull-right-container">
