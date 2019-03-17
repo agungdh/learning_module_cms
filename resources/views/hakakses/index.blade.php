@@ -4,6 +4,10 @@
 @include('hakakses.title')
 @endsection
 
+@section('html-title')
+@include('hakakses.title')
+@endsection
+
 @section('nav')
 @include('hakakses.nav')
 @endsection

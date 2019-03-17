@@ -13,18 +13,22 @@ class TempController extends Controller
 
     public function index()
     {
-        abort(400);
-        $result = ADHhelper::authCan('menu.index');
+        $parentRoute = ADHhelper::getParentOfInstanceMenu('hakakses');
+        $menuId = ADHhelper::getMenuIdByRouteSlug($parentRoute);
+        dd($menuId);
+
+        // abort(400);
+        // $result = ADHhelper::authCan('menu.index');
 
         // $result = HakAkses::where(['id_user' => 1, 'route' => 'menu.create'])->first();
         
         // $result = ADHhelper::checkRouteForMenu('menu.edit');
 
-        if ($result) {
-            return "yeah";
-        } else {
-            return "nope";
-        }
+        // if ($result) {
+        //     return "yeah";
+        // } else {
+        //     return "nope";
+        // }
 
         // return response()->download(storage_path('app/public/files/template/Template Import Barang.xlsx'));
 

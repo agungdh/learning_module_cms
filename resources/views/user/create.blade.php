@@ -4,6 +4,10 @@
 @include('user.title')
 @endsection
 
+@section('html-title')
+@include('user.title')
+@endsection
+
 @section('nav')
 @include('user.nav')
 @endsection

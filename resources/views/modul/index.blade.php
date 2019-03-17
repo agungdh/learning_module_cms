@@ -4,6 +4,10 @@
 @include('modul.title')
 @endsection
 
+@section('html-title')
+@include('modul.title')
+@endsection
+
 @section('nav')
 @include('modul.nav')
 @endsection

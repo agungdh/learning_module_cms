@@ -4,6 +4,10 @@
 Profil
 @endsection
 
+@section('html-title')
+Profil
+@endsection
+
 @section('nav')
 <li><a href="{{ route('main.profil') }}"><i class="fa fa-home"></i> Profil</a></li>
 @endsection

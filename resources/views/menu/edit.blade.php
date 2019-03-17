@@ -4,6 +4,10 @@
 @include('menu.title')
 @endsection
 
+@section('html-title')
+@include('menu.title')
+@endsection
+
 @section('nav')
 @include('menu.nav')
 @endsection

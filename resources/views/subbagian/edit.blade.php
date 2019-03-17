@@ -4,6 +4,10 @@
 @include('subbagian.title')
 @endsection
 
+@section('html-title')
+@include('subbagian.title')
+@endsection
+
 @section('nav')
 @include('subbagian.nav')
 @endsection

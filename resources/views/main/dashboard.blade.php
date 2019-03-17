@@ -4,6 +4,10 @@
 Dashboard
 @endsection
 
+@section('html-title')
+Dashboard
+@endsection
+
 @section('nav')
 <li><a href="{{ route('main.index') }}"><i class="fa fa-home"></i> Dashboard</a></li>
 @endsection

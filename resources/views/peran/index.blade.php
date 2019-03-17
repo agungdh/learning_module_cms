@@ -4,6 +4,10 @@
 @include('peran.title')
 @endsection
 
+@section('html-title')
+@include('peran.title')
+@endsection
+
 @section('nav')
 @include('peran.nav')
 @endsection

@@ -154,4 +154,28 @@ class ADHhelper extends Pustaka
 
         return $child;
     }
+
+    public static function listInstanceMenu()
+    {
+        $menus = [];
+        $menus['user'] = ['hakakses'];
+        $menus['peran'] = ['hakaksesperan'];
+        $menus['modul'] = ['bagian', 'subbagian'];
+
+        return $menus;
+    }
+
+    public static function getParentOfInstanceMenu($route)
+    {
+        $menus = self::listInstanceMenu();
+
+        $parent = null;
+        foreach ($menus as $key => $menu) {
+            if (in_array($route, $menu)) {
+                $parent = $key;
+            }
+        }
+
+        return $parent;
+    }
 }
