@@ -45,7 +45,7 @@ class MainController extends Controller
 
     function index() {
 		if (session('login') == true) {
-			return view('main.dashboard');
+			return redirect()->route('modul.index');
 		} else {
 			return view('template.login');
 		}

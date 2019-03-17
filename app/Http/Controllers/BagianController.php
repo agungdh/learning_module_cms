@@ -64,7 +64,7 @@ class BagianController extends Controller
     public function index($id)
     {
         if (!$this->authorCheckModul($id)) {
-            return redirect()->route('main.index');
+            abort(404);
         }
 
         $modul = Modul::find($id);
@@ -76,7 +76,7 @@ class BagianController extends Controller
     public function create($id)
     {
         if (!$this->authorCheckModul($id)) {
-            return redirect()->route('main.index');
+            abort(404);
         }
 
         $modul = Modul::find($id);
@@ -88,7 +88,7 @@ class BagianController extends Controller
     public function store(Request $request, $id)
     {
         if (!$this->authorCheckModul($id)) {
-            return redirect()->route('main.index');
+            abort(404);
         }
 
         $request->validate([
@@ -117,7 +117,7 @@ class BagianController extends Controller
     public function edit($id)
     {
         if (!$this->authorCheckBagian($id)) {
-            return redirect()->route('main.index');
+            abort(404);
         }
 
         $bagian = Bagian::find($id);
@@ -129,7 +129,7 @@ class BagianController extends Controller
     public function update(Request $request, $id)
     {
         if (!$this->authorCheckBagian($id)) {
-            return redirect()->route('main.index');
+            abort(404);
         }
         
         $request->validate([
@@ -153,7 +153,7 @@ class BagianController extends Controller
     public function destroy($id)
     {
         if (!$this->authorCheckBagian($id)) {
-            return redirect()->route('main.index');
+            abort(404);
         }
         
         $bagian = Bagian::find($id);

@@ -55,7 +55,7 @@ class ModulController extends Controller
     public function edit($id)
     {
         if (!$this->authorCheck($id)) {
-            return redirect()->route('main.index');
+            abort(404);
         }
 
         $modul = Modul::find($id);
@@ -66,7 +66,7 @@ class ModulController extends Controller
     public function update(Request $request, $id)
     {
         if (!$this->authorCheck($id)) {
-            return redirect()->route('main.index');
+            abort(404);
         }
         
         $request->validate([
@@ -87,7 +87,7 @@ class ModulController extends Controller
     public function destroy($id)
     {
         if (!$this->authorCheck($id)) {
-            return redirect()->route('main.index');
+            abort(404);
         }
      
         try {
