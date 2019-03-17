@@ -11,7 +11,7 @@ class HakAksesPeranController extends Controller
 {
     public function index($id_peran)
     {
-        $peran = Peran::with('hakAksesPerans')->find($id_peran);
+        $peran = Peran::with('hakAksesPerans')->findOrFail($id_peran);
 
         $hakAksesPerans = [];
         foreach ($peran->hakAksesPerans as $item) {

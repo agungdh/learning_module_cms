@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function sync($id)
     {
-        $user = User::with('peran.hakAksesPerans')->find($id);
+        $user = User::with('peran.hakAksesPerans')->findOrFail($id);
 
         $datas = [];
         foreach ($user->peran->hakAksesPerans as $hap) {

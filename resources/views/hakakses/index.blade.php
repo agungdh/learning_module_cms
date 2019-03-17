@@ -1,11 +1,11 @@
 @extends('template.template')
 
 @section('title')
-@include('hakaksesperan.title')
+@include('hakakses.title')
 @endsection
 
 @section('nav')
-@include('hakaksesperan.nav')
+@include('hakakses.nav')
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 	<div class="col-md-12">
     <div class="box box-primary">
         <div class="box-header">
-          <h3 class="box-title">Data Peran: {{$peran->peran}}</h3>
+          <h3 class="box-title">Data User: {{"{$user->username} => {$user->nama}"}}</h3>
         </div>
         <!-- /.box-header -->
 
@@ -29,7 +29,7 @@
             </select>
           </div>
       
-          {!! Form::model($data, ['url' => route('hakaksesperan.update', $peran->id), 'method' => 'put']) !!}
+          {!! Form::model($data, ['url' => route('hakakses.update', $user->id), 'method' => 'put']) !!}
 
           {!! Form::hidden('last_active_route', null, ['id' => 'last_active_route']) !!}
 

@@ -12,7 +12,7 @@ class PeranController extends Controller
 {
     public function sync($id)
     {
-        $peran = Peran::with('hakAksesPerans', 'users')->find($id);
+        $peran = Peran::with('hakAksesPerans', 'users')->findOrFail($id);
         
         $datas = [];
         $userId = [];

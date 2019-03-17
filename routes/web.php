@@ -61,6 +61,11 @@ Route::middleware('MustLoggedIn')->group(function () {
 	Route::put('/hakaksesperan/{id}', 'HakAksesPeranController@update')->name('hakaksesperan.update');
 	// END Hak Akses Peran
 
+	// Hak Akses
+	Route::get('/hakakses/{id}', 'HakAksesController@index')->name('hakakses.index');
+	Route::put('/hakakses/{id}', 'HakAksesController@update')->name('hakakses.update');
+	// END Hak Akses
+
 	// Peran
 	Route::get('/peran', 'PeranController@index')->name('peran.index');
 	Route::get('/peran/create', 'PeranController@create')->name('peran.create');

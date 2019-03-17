@@ -39,10 +39,11 @@
                 		<td>
 
 			                {!! Form::open(['id' => 'formHapus' . $item->id, 'route' => ['user.destroy', $item->id], 'method' => 'delete']) !!}
-    {{--                     <a class="btn btn-primary btn-sm" href="{{route('user.index', $item->id)}}">
-                          <i class="glyphicon glyphicon-pencil"></i> Hak Akses
+
+                        <a class="btn btn-primary btn-sm" href="{{route('hakakses.index', $item->id)}}">
+                          <i class="glyphicon glyphicon-lock"></i> Hak Akses
                         </a>
- --}}
+
                         <a class="btn btn-primary btn-sm" onclick="sync('{{route('user.sync', $item->id)}}')">
                           <i class="glyphicon glyphicon-refresh"></i> Sync
                         </a>
