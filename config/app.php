@@ -2,6 +2,10 @@
 
 return [
 
+    // Custom
+    'env_show_all_menu' => env('SHOW_ALL_MENU', false),
+    // END Custom
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

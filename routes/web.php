@@ -29,12 +29,13 @@ Route::get('/logout', 'MainController@logout')->name('main.logout');
 // END Main
 
 Route::middleware('MustLoggedIn')->group(function () {
-	
 	// Main
 	Route::get('/profil', 'MainController@profil')->name('main.profil');
 	Route::put('/profil', 'MainController@saveProfil')->name('main.saveProfil');
 	// END Main
+});
 
+Route::middleware('ADHauth')->group(function () {
 	// Menu
 	Route::get('/menu/{id}/up', 'MenuController@up')->name('menu.up');
 	Route::get('/menu/{id}/down', 'MenuController@down')->name('menu.down');
@@ -117,9 +118,4 @@ Route::middleware('MustLoggedIn')->group(function () {
 	Route::get('/subbagian/{id}/up', 'SubBagianController@up')->name('subbagian.up');
 	Route::get('/subbagian/{id}/down', 'SubBagianController@down')->name('subbagian.down');
 	// END Sub Bagian
-
-});
-
-Route::middleware('ADHauth')->group(function () {
-	
 });

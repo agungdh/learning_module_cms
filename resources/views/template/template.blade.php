@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>@yield('html-title') | {{env('APP_NAME')}}</title>
+  <title>@yield('html-title') | {{config('app.name')}}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -155,7 +155,7 @@
                           </a>
                           <ul class="treeview-menu">
                               @foreach($lvl3->childs as $lvl4)
-                                  @if(env('SHOW_ALL_MENU') || ADHhelper::authCan($lvl4->route))
+                                  @if(config('app.env_show_all_menu') || ADHhelper::authCan($lvl4->route))
                                     <li class="{{$lvl4->id == $menuId ? 'active' : null}}">
                                       <a href="{{ route($lvl4->route) }}">
                                         <i class="{{$lvl4->icon}}"></i> <span>{{$lvl4->menu}}</span>
@@ -166,7 +166,7 @@
                           </ul>
                         </li>
                       @else
-                          @if(env('SHOW_ALL_MENU') || ADHhelper::authCan($lvl3->route))
+                          @if(config('app.env_show_all_menu') || ADHhelper::authCan($lvl3->route))
                             <li class="{{$lvl3->id == $menuId ? 'active' : null}}">
                               <a href="{{ route($lvl3->route) }}">
                                 <i class="{{$lvl3->icon}}"></i> <span>{{$lvl3->menu}}</span>
@@ -178,7 +178,7 @@
                   </ul>
                 </li>
                 @else
-                  @if(env('SHOW_ALL_MENU') || ADHhelper::authCan($lvl2->route))
+                  @if(config('app.env_show_all_menu') || ADHhelper::authCan($lvl2->route))
                     <li class="{{$lvl2->id == $menuId ? 'active' : null}}">
                       <a href="{{ route($lvl2->route) }}">
                         <i class="{{$lvl2->icon}}"></i> <span>{{$lvl2->menu}}</span>
@@ -190,7 +190,7 @@
             </ul>
           </li>
           @else
-            @if(env('SHOW_ALL_MENU') || ADHhelper::authCan($lvl1->route))
+            @if(config('app.env_show_all_menu') || ADHhelper::authCan($lvl1->route))
               <li class="{{$lvl1->id == $menuId ? 'active' : null}}">
                 <a href="{{ route($lvl1->route) }}">
                   <i class="{{$lvl1->icon}}"></i> <span>{{$lvl1->menu}}</span>

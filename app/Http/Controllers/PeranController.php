@@ -101,7 +101,7 @@ class PeranController extends Controller
         } catch (QueryException $exception) {
             return redirect()->back()->with('alert', [
                 'title' => 'ERROR !!!',
-                'message' => env('APP_DEBUG') ? $exception->getMessage() : 'Something Went Wrong !!!',
+                'message' => config('app.debug') ? $exception->getMessage() : 'Something Went Wrong !!!',
                 'class' => 'error',
             ]);        
         }
