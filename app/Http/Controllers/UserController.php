@@ -111,6 +111,16 @@ class UserController extends Controller
 
         User::where(['id' => $id])->update($data);
 
+        $peran = Peran::with('hakAksesPerans')->find($request->id_peran);
+
+        $datas = [];
+        foreach ($peran->hakAksesPerans as $hap) {
+            $datas[] = ['id_user' => $id, 'route' => $hap->route];
+        }
+
+        HakAkses::where(['id_user' => $id])->delete();
+        HakAkses::insert($datas);
+
         return redirect()->route('user.index')->with('alert', [
             'title' => 'BERHASIL !!!',
             'message' => 'Berhasil Ubah Data',
