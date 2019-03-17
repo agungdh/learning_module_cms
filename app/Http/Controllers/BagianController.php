@@ -1,4 +1,4 @@
-Ubahphp
+<?php
 
 namespace App\Http\Controllers;
 
