@@ -15,18 +15,14 @@ class UserController extends Controller
 {
     public function sync($id)
     {
-        $peran = User::with('hakAksesPerans', 'users')->find($id);
-        
+        $user = User::with('peran.hakAksesPerans')->find($id);
+
         $datas = [];
-        $userId = [];
-        foreach ($peran->users as $user) {
-            $userId[] = $user->id;
-            foreach ($peran->hakAksesPerans as $hakAksesPeran) {
-                $datas[] = ['id_user' => $user->id, 'route' => $hakAksesPeran->route];
-            }   
+        foreach ($user->peran->hakAksesPerans as $hap) {
+            $datas[] = ['id_user' => $id, 'route' => $hap->route];
         }
 
-        HakAkses::whereIn('id_user', $userId)->delete();
+        HakAkses::whereIn('id_user', [$id])->delete();
         HakAkses::insert($datas);
 
         return redirect()->route('user.index')->with('alert', [
@@ -67,7 +63,16 @@ class UserController extends Controller
         $data = $request->only('username', 'nama', 'id_peran');
         $data['password'] = Hash::make($request->password);
 
-        User::create($data);
+        $userID = User::insertGetId($data);
+
+        $peran = Peran::with('hakAksesPerans')->find($request->id_peran);
+
+        $datas = [];
+        foreach ($peran->hakAksesPerans as $hap) {
+            $datas[] = ['id_user' => $userID, 'route' => $hap->route];
+        }
+
+        HakAkses::insert($datas);
 
         return redirect()->route('user.index')->with('alert', [
             'title' => 'BERHASIL !!!',
