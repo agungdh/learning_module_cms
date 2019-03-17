@@ -3,7 +3,7 @@
 -- Host: 127.0.0.1	Database: lmcms
 -- ------------------------------------------------------
 -- Server version 	5.5.5-10.1.35-MariaDB
--- Date: Sun, 17 Mar 2019 19:58:08 +0700
+-- Date: Sun, 17 Mar 2019 20:07:43 +0700
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -100,12 +100,12 @@ CREATE TABLE `hak_akses` (
 LOCK TABLES `hak_akses` WRITE;
 /*!40000 ALTER TABLE `hak_akses` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `hak_akses` VALUES (3,'auth.index'),(3,'auth.store'),(3,'menu.create'),(3,'menu.destroy'),(3,'menu.down'),(3,'menu.edit'),(3,'menu.index'),(3,'menu.store'),(3,'menu.up'),(3,'menu.update'),(3,'peran.create'),(3,'temp.index'),(3,'temp.sendData');
+INSERT INTO `hak_akses` VALUES (1,'bagian.create'),(1,'bagian.destroy'),(1,'bagian.down'),(1,'bagian.edit'),(1,'bagian.index'),(1,'bagian.store'),(1,'bagian.up'),(1,'bagian.update'),(1,'gambar.create'),(1,'gambar.destroy'),(1,'gambar.edit'),(1,'gambar.index'),(1,'gambar.store'),(1,'gambar.update'),(1,'hakakses.index'),(1,'hakakses.update'),(1,'hakaksesperan.index'),(1,'hakaksesperan.update'),(1,'menu.create'),(1,'menu.destroy'),(1,'menu.down'),(1,'menu.edit'),(1,'menu.index'),(1,'menu.store'),(1,'menu.up'),(1,'menu.update'),(1,'modul.create'),(1,'modul.destroy'),(1,'modul.edit'),(1,'modul.index'),(1,'modul.store'),(1,'modul.update'),(1,'peran.create'),(1,'peran.destroy'),(1,'peran.edit'),(1,'peran.index'),(1,'peran.store'),(1,'peran.sync'),(1,'peran.update'),(1,'subbagian.create'),(1,'subbagian.destroy'),(1,'subbagian.document'),(1,'subbagian.down'),(1,'subbagian.edit'),(1,'subbagian.index'),(1,'subbagian.saveDocument'),(1,'subbagian.store'),(1,'subbagian.up'),(1,'subbagian.update'),(1,'user.create'),(1,'user.destroy'),(1,'user.edit'),(1,'user.index'),(1,'user.store'),(1,'user.sync'),(1,'user.update'),(5,'bagian.create'),(5,'bagian.destroy'),(5,'bagian.down'),(5,'bagian.edit'),(5,'bagian.index'),(5,'bagian.store'),(5,'bagian.up'),(5,'bagian.update'),(5,'gambar.create'),(5,'gambar.destroy'),(5,'gambar.edit'),(5,'gambar.index'),(5,'gambar.store'),(5,'gambar.update'),(5,'modul.create'),(5,'modul.destroy'),(5,'modul.edit'),(5,'modul.index'),(5,'modul.store'),(5,'modul.update'),(5,'subbagian.create'),(5,'subbagian.destroy'),(5,'subbagian.document'),(5,'subbagian.down'),(5,'subbagian.edit'),(5,'subbagian.index'),(5,'subbagian.saveDocument'),(5,'subbagian.store'),(5,'subbagian.up'),(5,'subbagian.update');
 /*!40000 ALTER TABLE `hak_akses` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `hak_akses` with 13 row(s)
+-- Dumped table `hak_akses` with 86 row(s)
 --
 
 --
@@ -119,7 +119,7 @@ CREATE TABLE `hak_akses_peran` (
   `route` varchar(191) NOT NULL,
   PRIMARY KEY (`id_peran`,`route`),
   CONSTRAINT `hak_akses_peran_ibfk_1` FOREIGN KEY (`id_peran`) REFERENCES `peran` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,12 +129,12 @@ CREATE TABLE `hak_akses_peran` (
 LOCK TABLES `hak_akses_peran` WRITE;
 /*!40000 ALTER TABLE `hak_akses_peran` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `hak_akses_peran` VALUES (1,'auth.index'),(1,'auth.store'),(1,'menu.create'),(1,'menu.destroy'),(1,'menu.down'),(1,'menu.edit'),(1,'menu.index'),(1,'menu.store'),(1,'menu.up'),(1,'menu.update'),(1,'peran.create'),(1,'temp.index'),(1,'temp.sendData');
+INSERT INTO `hak_akses_peran` VALUES (1,'bagian.create'),(1,'bagian.destroy'),(1,'bagian.down'),(1,'bagian.edit'),(1,'bagian.index'),(1,'bagian.store'),(1,'bagian.up'),(1,'bagian.update'),(1,'gambar.create'),(1,'gambar.destroy'),(1,'gambar.edit'),(1,'gambar.index'),(1,'gambar.store'),(1,'gambar.update'),(1,'hakakses.index'),(1,'hakakses.update'),(1,'hakaksesperan.index'),(1,'hakaksesperan.update'),(1,'menu.create'),(1,'menu.destroy'),(1,'menu.down'),(1,'menu.edit'),(1,'menu.index'),(1,'menu.store'),(1,'menu.up'),(1,'menu.update'),(1,'modul.create'),(1,'modul.destroy'),(1,'modul.edit'),(1,'modul.index'),(1,'modul.store'),(1,'modul.update'),(1,'peran.create'),(1,'peran.destroy'),(1,'peran.edit'),(1,'peran.index'),(1,'peran.store'),(1,'peran.sync'),(1,'peran.update'),(1,'subbagian.create'),(1,'subbagian.destroy'),(1,'subbagian.document'),(1,'subbagian.down'),(1,'subbagian.edit'),(1,'subbagian.index'),(1,'subbagian.saveDocument'),(1,'subbagian.store'),(1,'subbagian.up'),(1,'subbagian.update'),(1,'user.create'),(1,'user.destroy'),(1,'user.edit'),(1,'user.index'),(1,'user.store'),(1,'user.sync'),(1,'user.update'),(5,'bagian.create'),(5,'bagian.destroy'),(5,'bagian.down'),(5,'bagian.edit'),(5,'bagian.index'),(5,'bagian.store'),(5,'bagian.up'),(5,'bagian.update'),(5,'gambar.create'),(5,'gambar.destroy'),(5,'gambar.edit'),(5,'gambar.index'),(5,'gambar.store'),(5,'gambar.update'),(5,'modul.create'),(5,'modul.destroy'),(5,'modul.edit'),(5,'modul.index'),(5,'modul.store'),(5,'modul.update'),(5,'subbagian.create'),(5,'subbagian.destroy'),(5,'subbagian.document'),(5,'subbagian.down'),(5,'subbagian.edit'),(5,'subbagian.index'),(5,'subbagian.saveDocument'),(5,'subbagian.store'),(5,'subbagian.up'),(5,'subbagian.update');
 /*!40000 ALTER TABLE `hak_akses_peran` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `hak_akses_peran` with 13 row(s)
+-- Dumped table `hak_akses_peran` with 86 row(s)
 --
 
 --
@@ -163,12 +163,12 @@ CREATE TABLE `menu` (
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `menu` VALUES (80,'Dashboard','fa fa-dashboard','main.index',NULL,1),(111,'Admin','fa fa-user-secret',NULL,NULL,4),(112,'Menu','fa fa-list','menu.index',111,1),(113,'Peran','fa fa-user','peran.index',111,2),(115,'Modul','fa fa-book','modul.index',NULL,2),(116,'Gambar','fa fa-image','gambar.index',NULL,3),(117,'User','fa fa-users','user.index',111,3);
+INSERT INTO `menu` VALUES (111,'Admin','fa fa-user-secret',NULL,NULL,3),(112,'Menu','fa fa-list','menu.index',111,1),(113,'Peran','fa fa-user','peran.index',111,2),(115,'Modul','fa fa-book','modul.index',NULL,1),(116,'Gambar','fa fa-image','gambar.index',NULL,2),(117,'User','fa fa-users','user.index',111,3);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `menu` with 7 row(s)
+-- Dumped table `menu` with 6 row(s)
 --
 
 --
@@ -194,12 +194,12 @@ CREATE TABLE `modul` (
 LOCK TABLES `modul` WRITE;
 /*!40000 ALTER TABLE `modul` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `modul` VALUES (5,'PHP for dummies 1 agung',3),(7,'JAVA is EZ PZ',1),(9,'test',1);
+INSERT INTO `modul` VALUES (7,'JAVA is EZ PZ',1);
 /*!40000 ALTER TABLE `modul` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `modul` with 3 row(s)
+-- Dumped table `modul` with 1 row(s)
 --
 
 --
@@ -246,7 +246,7 @@ CREATE TABLE `user` (
   UNIQUE KEY `username` (`username`),
   KEY `id_peran` (`id_peran`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_peran`) REFERENCES `peran` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -256,12 +256,12 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 SET autocommit=0;
-INSERT INTO `user` VALUES (1,'admin','$2y$10$WwAZ2IliBuDLWwX1JiwcWuBe5c8t.KckyQf6siSS5Ea1cKRwZUe2K','Administrator',1),(3,'agungdh','$2y$10$WwAZ2IliBuDLWwX1JiwcWuBe5c8t.KckyQf6siSS5Ea1cKRwZUe2K','AgungDH',1),(4,'rqwr','$2y$10$XmmswEuyWhYBo.3g/0zjLOnUkvEa8/bYXdEBqFl/tue5gaNZoB1Fa','qw',1);
+INSERT INTO `user` VALUES (1,'admin','$2y$10$WwAZ2IliBuDLWwX1JiwcWuBe5c8t.KckyQf6siSS5Ea1cKRwZUe2K','Administrator',1),(5,'user','$2y$10$lK09qSrWaH00D9Cl5SYH7.I0crg4wethJOtd5hVNC2q0Rl0bYVQWK','User',5);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
 
--- Dumped table `user` with 3 row(s)
+-- Dumped table `user` with 2 row(s)
 --
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -273,4 +273,4 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on: Sun, 17 Mar 2019 19:58:08 +0700
+-- Dump completed on: Sun, 17 Mar 2019 20:07:43 +0700
