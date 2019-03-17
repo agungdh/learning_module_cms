@@ -11,15 +11,15 @@
   <link id="favicon" rel="icon" type="image/x-icon" href="{{asset('storage/assets')}}/favicon/favicon.ico">
   
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/dist/css/AdminLTE.min.css">
   <!-- SweetAlert -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/sweetalert-1.1.3/dist/sweetalert.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/sweetalert/dist/sweetalert.css">
   
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,11 +64,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery 3 -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- SweetAlert -->
-<script src="{{asset('storage/assets')}}/sweetalert-1.1.3/dist/sweetalert.min.js"></script>
+<script src="{{asset('storage/assets')}}/sweetalert/dist/sweetalert.min.js"></script>
 @if(session('alert'))
 <script type="text/javascript">
     swal('{{ session('alert')['title'] }}', '{{ session('alert')['message'] }}', '{{ session('alert')['class'] }}');

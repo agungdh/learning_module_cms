@@ -12,30 +12,30 @@
 
   <link id="favicon" rel="icon" type="image/x-icon" href="{{asset('storage/assets')}}/favicon/favicon.ico">
 
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
   <!-- fullCalendar -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/fullcalendar/dist/fullcalendar.min.css">
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
   <!-- DataTables -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- SweetAlert -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/sweetalert-1.1.3/dist/sweetalert.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/sweetalert/dist/sweetalert.css">
   <!-- Select2 -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/select2/dist/css/select2.min.css">
   <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- Pace style -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/plugins/pace/pace.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/plugins/pace/pace.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE/dist/css/skins/skin-blue.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -79,13 +79,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset('storage/assets')}}/AdminLTE-2.4.5/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="{{asset('storage/assets')}}/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">{{session('login') ? ADHhelper::getUserData()->nama : "Nama"}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{asset('storage/assets')}}/AdminLTE-2.4.5/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="{{asset('storage/assets')}}/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   {{session('login') ? ADHhelper::getUserData()->nama : "Nama"}}
@@ -238,29 +238,29 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Select2 -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/select2/dist/js/select2.full.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- bootstrap datepicker -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.id.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.id.min.js"></script>
 <!-- SweetAlert -->
-<script src="{{asset('storage/assets')}}/sweetalert-1.1.3/dist/sweetalert.min.js"></script>
+<script src="{{asset('storage/assets')}}/sweetalert/dist/sweetalert.min.js"></script>
 <!-- DataTables -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- fullCalendar -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/moment/moment.js"></script>
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/fullcalendar/dist/locale/id.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/moment/moment.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/fullcalendar/dist/locale/id.js"></script>
 <!-- PACE -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/PACE/pace.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/PACE/pace.min.js"></script>
 <!-- Slimscroll -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/bower_components/fastclick/lib/fastclick.js"></script>
 <script type="text/javascript">
 $(document).ajaxStart(function () {
   Pace.restart();
@@ -284,7 +284,7 @@ $.ajaxSetup({
 FastClick.attach(document.body);
 </script>
 <!-- AdminLTE App -->
-<script src="{{asset('storage/assets')}}/AdminLTE-2.4.5/dist/js/adminlte.min.js"></script>
+<script src="{{asset('storage/assets')}}/AdminLTE/dist/js/adminlte.min.js"></script>
 @yield('js')
 @if(session('alert'))
 <script type="text/javascript">
