@@ -122,7 +122,7 @@
   <!-- /.content-wrapper -->
 
   <footer class="main-footer">
-    <strong>Copyright &copy; {{ date('Y') }} <a href="{{route('main.index')}}">LMCMS</a>.</strong> All rights
+    <strong>Copyright &copy; {{ date('Y') }} <a target="_blank" href="{{route('main.index')}}">LMCMS</a>.</strong> All rights
     reserved.
   </footer>
 </div>
