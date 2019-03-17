@@ -42,7 +42,7 @@
 @endsection
 
 @section('js')
-<script src="{{asset('storage/assets')}}/tinymce_5.0.2/tinymce/js/tinymce/tinymce.min.js"></script>
+<script src="{{asset('storage/assets')}}/tinymce/tinymce/js/tinymce/tinymce.min.js"></script>
 <script>
 tinymce.init({
 	selector:'textarea',
