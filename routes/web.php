@@ -29,6 +29,7 @@ Route::get('/logout', 'MainController@logout')->name('main.logout');
 // END Main
 
 Route::middleware('MustLoggedIn')->group(function () {
+	
 	// Main
 	Route::get('/profil', 'MainController@profil')->name('main.profil');
 	Route::put('/profil', 'MainController@saveProfil')->name('main.saveProfil');
@@ -44,6 +45,16 @@ Route::middleware('MustLoggedIn')->group(function () {
 	Route::put('/menu/{id}', 'MenuController@update')->name('menu.update');
 	Route::delete('/menu/{id}', 'MenuController@destroy')->name('menu.destroy');
 	// END Menu
+
+	// User
+	Route::get('/user', 'UserController@index')->name('user.index');
+	Route::get('/user/create', 'UserController@create')->name('user.create');
+	Route::post('/user', 'UserController@store')->name('user.store');
+	Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
+	Route::put('/user/{id}', 'UserController@update')->name('user.update');
+	Route::delete('/user/{id}', 'UserController@destroy')->name('user.destroy');
+	Route::get('/user/{id}/sync', 'UserController@sync')->name('user.sync');
+	// END User
 
 	// Hak Akses Peran
 	Route::get('/hakaksesperan/{id}', 'HakAksesPeranController@index')->name('hakaksesperan.index');

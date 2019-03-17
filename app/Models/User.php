@@ -14,6 +14,7 @@ class User extends Model
                             'username',
                             'password',
                             'nama',
+                            'id_peran',
     					];
 
 	protected $hidden = [
@@ -28,5 +29,10 @@ class User extends Model
     public function moduls()
     {
         return $this->hasMany('App\Models\Modul', 'id_user');
+    }
+
+    public function peran()
+    {
+        return $this->belongsTo('App\Models\Peran', 'id_peran');
     }
 }

@@ -104,7 +104,9 @@ class ADHhelper extends Pustaka
             $name = $value->getName();
             if (!empty($name) && 
                 substr($name, 0, 4) != 'api.' && 
-                substr($name, 0, 5) != 'main.') {
+                substr($name, 0, 5) != 'main.'&& 
+                substr($name, 0, 5) != 'read.'&& 
+                substr($name, 0, 5) != 'temp.') {
                 $routeList[] = $name;
             }
         }

@@ -1,4 +1,4 @@
-<?php
+Ubahphp
 
 namespace App\Http\Controllers;
 
@@ -145,7 +145,7 @@ class BagianController extends Controller
 
         return redirect()->route('bagian.index', $id_modul)->with('alert', [
             'title' => 'BERHASIL !!!',
-            'message' => 'Berhasil Tambah Data',
+            'message' => 'Berhasil Ubah Data',
             'class' => 'success',
         ]);        
     }

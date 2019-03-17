@@ -1,11 +1,11 @@
 @extends('template.template')
 
 @section('title')
-@include('peran.title')
+@include('user.title')
 @endsection
 
 @section('nav')
-@include('peran.nav')
+@include('user.nav')
 @endsection
 
 @section('content')
@@ -13,37 +13,41 @@
 	<div class="col-md-12">
 		<div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Data Peran</h3>
+              <h3 class="box-title">Data User</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            	<a class="btn btn-success btn-sm" href="{{route('peran.create')}}">
+            	<a class="btn btn-success btn-sm" href="{{route('user.create')}}">
                   <i class="glyphicon glyphicon-plus"></i> Tambah
                 </a><br><br>
               <table class="table table-bordered table-hover datatable" style="width: 100%">
                 <thead>
 	                <tr>
-	                  <th>Peran</th>
+	                  <th>Username</th>
+                    <th>Nama</th>
+                    <th>Peran</th>
 	                  <th>Proses</th>
 	                </tr>
                 </thead>
                 <tbody>
-                	@foreach($perans as $item)
+                	@foreach($users as $item)
                 	<tr>
-                		<td>{{$item->peran}}</td>
+                		<td>{{$item->username}}</td>
+                    <td>{{$item->nama}}</td>
+                    <td>{{$item->peran->peran}}</td>
                 		
                 		<td>
 
-			                {!! Form::open(['id' => 'formHapus' . $item->id, 'route' => ['peran.destroy', $item->id], 'method' => 'delete']) !!}
-                        <a class="btn btn-primary btn-sm" href="{{route('hakaksesperan.index', $item->id)}}">
-                          <i class="glyphicon glyphicon-lock"></i> Hak Akses
+			                {!! Form::open(['id' => 'formHapus' . $item->id, 'route' => ['user.destroy', $item->id], 'method' => 'delete']) !!}
+    {{--                     <a class="btn btn-primary btn-sm" href="{{route('user.index', $item->id)}}">
+                          <i class="glyphicon glyphicon-pencil"></i> Hak Akses
                         </a>
-
-                        <a class="btn btn-primary btn-sm" onclick="sync('{{route('peran.sync', $item->id)}}')">
+ --}}
+                        <a class="btn btn-primary btn-sm" onclick="sync('{{route('user.sync', $item->id)}}')">
                           <i class="glyphicon glyphicon-refresh"></i> Sync
                         </a>
 
-	                			<a class="btn btn-primary btn-sm" href="{{route('peran.edit', $item->id)}}">
+	                			<a class="btn btn-primary btn-sm" href="{{route('user.edit', $item->id)}}">
 				                  <i class="glyphicon glyphicon-pencil"></i> Edit
 				                </a>
 

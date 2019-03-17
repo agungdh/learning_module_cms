@@ -7,6 +7,9 @@
   <title>{{env('APP_NAME')}}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link id="favicon" rel="icon" type="image/x-icon" href="{{asset('storage/assets')}}/favicon/favicon.ico">
+  
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{asset('storage/assets')}}/AdminLTE-2.4.5/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -31,7 +34,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{route('main.index')}}"><b>Admin</b>LTE</a>
+    <a href="{{route('main.index')}}"><b>LM</b>CMS</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -50,7 +53,7 @@
       </div>
       <div class="row">
         <div class="col-xs-4 pull-right">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
         </div>
         <!-- /.col -->
       </div>
