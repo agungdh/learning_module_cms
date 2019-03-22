@@ -101,7 +101,7 @@ class ADHhelper extends Pustaka
 
     public static function authCan($route)
     {
-        if (explode('.', $route)[0] == 'main' || HakAkses::where(['id_user' => session('userID'), 'route' => $route])->first()) {
+        if (in_array(explode('.', $route)[0], ['main', 'read']) || HakAkses::where(['id_user' => session('userID'), 'route' => $route])->first()) {
             return true;
         } else {
             return false;

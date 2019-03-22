@@ -13,7 +13,7 @@ class TempController extends Controller
 
     public function index()
     {
-
+    	
     }
 
     public function sendData(Request $request)

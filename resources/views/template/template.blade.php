@@ -92,10 +92,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="{{route('main.profil')}}" class="btn btn-primary">Profil</a>
+                  <a href="{{route('main.profil')}}" class="btn btn-default">Profil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="{{route('main.logout')}}" class="btn btn-danger">Logout</a>
+                  <a href="{{route('main.logout')}}" class="btn btn-default">Logout</a>
                 </div>
               </li>
             </ul>
